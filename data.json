@@ -30,10 +30,10 @@
    "entry_date": "2026-11-17",
    "open_price": 36.75,
    "days_held": 0,
-   "ret": -5.5,
-   "spy_ret": -1.15,
-   "excess": -4.34,
-   "net_excess": -5.04
+   "ret": -4.98,
+   "spy_ret": -1.0,
+   "excess": -3.98,
+   "net_excess": -4.68
   },
   {
    "ticker": "BW",
@@ -73,10 +73,10 @@
    "entry_date": "2026-11-17",
    "open_price": 9.95,
    "days_held": 0,
-   "ret": -3.37,
-   "spy_ret": -1.15,
-   "excess": -2.21,
-   "net_excess": -3.31
+   "ret": -4.77,
+   "spy_ret": -1.0,
+   "excess": -3.77,
+   "net_excess": -4.87
   }
  ],
  "runs": [
@@ -104,23 +104,30 @@
    "new": 0,
    "provisional": 0,
    "errors": []
+  },
+  {
+   "at": "2026-11-17 15:58 ET",
+   "for_day": "2026-11-17",
+   "new": 0,
+   "provisional": 0,
+   "errors": []
   }
  ],
- "updated": "2026-11-17 15:06 ET",
+ "updated": "2026-11-17 15:58 ET",
  "paper": {
   "start": "2026-11-17",
   "start_value": 100000.0,
   "as_of": "2026-11-17",
   "intraday": true,
-  "value": 98097.34,
-  "ret": -1.9,
-  "sp_value": 98847.49,
-  "sp_ret": -1.15,
+  "value": 98121.29,
+  "ret": -1.88,
+  "sp_value": 98997.82,
+  "sp_ret": -1.0,
   "cash": 253.09,
   "spy_shares": 108,
-  "spy_value": 78827.04,
-  "in_stocks": 19.4,
-  "max_drop": -1.9,
+  "spy_value": 78939.36,
+  "in_stocks": 19.3,
+  "max_drop": -1.88,
   "slots_used": 2,
   "slots": 10,
   "holdings": [
@@ -129,9 +136,9 @@
     "shares": 999,
     "bought": "2026-11-17",
     "buy_px": 10.0047,
-    "last_px": 9.615,
-    "value": 9605.38,
-    "ret": -3.9,
+    "last_px": 9.475,
+    "value": 9465.53,
+    "ret": -5.29,
     "days_held": 0,
     "sell_on": "about 2027-02-16"
    },
@@ -140,9 +147,9 @@
     "shares": 271,
     "bought": "2026-11-17",
     "buy_px": 36.8786,
-    "last_px": 34.73,
-    "value": 9411.83,
-    "ret": -5.83,
+    "last_px": 34.92,
+    "value": 9463.32,
+    "ret": -5.31,
     "days_held": 0,
     "sell_on": "about 2027-02-16"
    }
@@ -203,9 +210,9 @@
   "history": [
    {
     "date": "2026-11-17",
-    "value": 98097.34,
-    "sp": 98847.49,
-    "in_stocks": 19.4
+    "value": 98121.29,
+    "sp": 98997.82,
+    "in_stocks": 19.3
    }
   ]
  },

@@ -25,6 +25,10 @@ td{padding:8px 6px;border-bottom:1px solid var(--line);white-space:nowrap}td.wra
 .scroll{overflow-x:auto}.pos{color:var(--good)}.neg{color:var(--bad)}
 .kv{display:grid;grid-template-columns:1fr auto;gap:6px 12px;font-size:14px}.kv b{font-family:var(--mono)}
 .note{font-size:13px;color:var(--muted)}
+.update-controls{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;align-items:center}
+.update-link,.reload{display:inline-block;border:1px solid var(--line);border-radius:10px;padding:9px 12px;background:var(--card);color:var(--accent);font:600 14px var(--body);text-decoration:none;cursor:pointer}
+.update-link:focus-visible,.reload:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.reload:disabled{opacity:.6;cursor:wait}
 @media (max-width:560px){.big{grid-template-columns:1fr 1fr}.stat b{font-size:19px}}
 </style>
 </head>
@@ -33,6 +37,12 @@ td{padding:8px 6px;border-bottom:1px solid var(--line);white-space:nowrap}td.wra
   <header>
     <h1>CFO Buy Tracker</h1>
     <p class="muted" id="sub" style="margin:4px 0 0">Every qualifying CFO buy since Nov 16, 2026, held 3 months, compared with the S&amp;P.</p>
+    <div class="update-controls">
+      <a class="update-link" href="https://github.com/yyschusterman-commits/cfo-tracker/actions/workflows/nightly.yml" target="_blank" rel="noopener noreferrer">Check for updates ↗</a>
+      <button class="reload" id="reload" type="button">Reload results</button>
+    </div>
+    <p class="note" style="margin:7px 0 0">Check for updates opens GitHub: choose Run workflow, then Run workflow again. When it finishes publishing, reload results here.</p>
+    <p class="note" id="pending-note" hidden></p>
   </header>
   <div class="tabs" role="tablist">
     <button class="tab" aria-selected="true" data-t="score">Scorecard</button>
@@ -47,6 +57,7 @@ td{padding:8px 6px;border-bottom:1px solid var(--line);white-space:nowrap}td.wra
 <script>
 const $=s=>document.querySelector(s);
 let D={signals:[],runs:[]},C={};
+let currentTab='score';
 const f=(v,d=1)=>v==null||isNaN(v)?'–':(v>0?'+':'')+(+v).toFixed(d)+'%';
 const cls=v=>v>0?'pos':(v<0?'neg':'');
 const mean=a=>a.reduce((x,y)=>x+y,0)/a.length;
@@ -86,6 +97,7 @@ function scorecard(){
   h+=`<div class="card"><h2>Signals so far</h2><div class="kv">
     <span>CFO buys found</span><b>${S.length}</b><span>Skipped (score under 33 / price / data)</span><b>${skS}</b>
     <span>Skipped (opened over the 3% limit)</span><b>${skL}</b><span>Waiting for next open</span><b>${cnt('waiting')+cnt('new')}</b>
+    <span>Reported today, pending nightly review</span><b>${(D.pending_filings||[]).length}</b>
     <span>Open</span><b>${op.length}</b><span>Finished</span><b>${n}</b></div>
     <p class="note" style="margin:12px 0 0">Trades overlap in time, so a market crash hits many at once. Treat the luck number as rough.</p></div>`;
   return h;
@@ -115,6 +127,7 @@ function paper(){
   const P=D.paper;
   if(!P||!P.start)return `<div class="card"><h2>Paper account</h2><p style="margin:0">Starts with $100,000 at the next market open. The first night after that, this tab fills in.</p></div>`;
   let h=`<div class="card"><h2>$100,000 paper account <span class="muted" style="font-weight:400">since ${P.start}</span></h2>
+  ${P.intraday?'<p class="note">Intraday estimate using the latest available prices. Paper buys use the opening price; close-based actions wait until the session is complete.</p>':''}
   <div class="big">
     <div class="stat"><b class="${cls(P.ret)}">${f(P.ret)}</b><span>account (${money(P.value)})</span></div>
     <div class="stat"><b class="${cls(P.sp_ret)}">${f(P.sp_ret)}</b><span>S&amp;P, same $100k (${money(P.sp_value)})</span></div>
@@ -140,16 +153,26 @@ function render(t){
   if(t==='score')h=scorecard();
   if(t==='open')h=table(S.filter(s=>s.status==='open'),[['Ticker',s=>s.ticker],['Bought',s=>s.entry_date],['Buy $',s=>s.open_price],['CFO $',s=>s.insider_price],['Days',s=>s.days_held],['Return',s=>f(s.ret),s=>cls(s.ret)],['S&P',s=>f(s.spy_ret),s=>cls(s.spy_ret)],['Beat',s=>f(s.excess),s=>cls(s.excess)],['Score',s=>s.score]]);
   if(t==='closed')h=table(S.filter(s=>s.status==='closed'),[['Ticker',s=>s.ticker],['Bought',s=>s.entry_date],['Sold',s=>s.exit_date],['Return',s=>f(s.ret),s=>cls(s.ret)],['S&P',s=>f(s.spy_ret),s=>cls(s.spy_ret)],['Beat',s=>f(s.excess),s=>cls(s.excess)],['After costs',s=>f(s.net_excess),s=>cls(s.net_excess)],['Note',s=>s.note,()=>'wrap']]);
-  if(t==='all')h=table(S,[['Filed',s=>s.filing_time],['Ticker',s=>s.ticker],['Value',s=>'$'+Math.round(s.value/1000)+'k'],['CFO $',s=>s.insider_price],['Score',s=>s.score],['Status',s=>s.status],['Note',s=>s.note,()=>'wrap']]);
+  if(t==='all')h=table([...(D.pending_filings||[]),...S],[['Filed',s=>s.filing_time],['Ticker',s=>s.ticker],['Value',s=>'$'+Math.round(s.value/1000)+'k'],['CFO $',s=>s.insider_price],['Score',s=>s.score],['Status',s=>s.status],['Note',s=>s.note,()=>'wrap']]);
   if(t==='paper')h=paper();
   $('#view').innerHTML=h;
 }
-document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.setAttribute('aria-selected',x===b));render(b.dataset.t)});
-Promise.all([fetch('data.json',{cache:'no-store'}).then(r=>r.json()),fetch('config.json').then(r=>r.json())]).then(([d,c])=>{
-  D=d;C=c;const last=d.runs?.[d.runs.length-1];
-  $('#foot').textContent=`Updated ${d.updated||'not yet'} · runs every weekday evening after 10pm ET`+(last?.errors?.length?` · last run had ${last.errors.length} error(s)`:'');
-  render('score');
-}).catch(e=>{$('#view').innerHTML=`<div class="card">Could not load data: ${e}</div>`});
+document.querySelectorAll('.tabs .tab').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tabs .tab').forEach(x=>x.setAttribute('aria-selected',x===b));currentTab=b.dataset.t;render(currentTab)});
+async function loadResults(){
+  const reload=$('#reload');reload.disabled=true;reload.textContent='Loading…';
+  try{
+    const read=async name=>{const r=await fetch(name,{cache:'no-store'});if(!r.ok)throw Error(`${name}: ${r.status}`);return r.json()};
+    const [d,c]=await Promise.all([read('data.json'),read('config.json')]);
+    D=d;C=c;const last=d.runs?.[d.runs.length-1],pending=(d.pending_filings||[]).length;
+    $('#foot').textContent=`Updated ${d.updated||'not yet'} · checks weekdays at 7:30am and 7:41pm California time, plus manual runs`+(last?.errors?.length?` · last run had ${last.errors.length} error(s)`:'');
+    $('#pending-note').hidden=!pending;
+    $('#pending-note').textContent=`${pending} CFO filing group${pending===1?'':'s'} reported today. See All signals; these are provisional until nightly review.`;
+    render(currentTab);
+  }catch(e){$('#view').textContent=`Could not load data: ${e}`}
+  finally{reload.disabled=false;reload.textContent='Reload results'}
+}
+$('#reload').onclick=loadResults;
+loadResults();
 </script>
 </body>
 </html>

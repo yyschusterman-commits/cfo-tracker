@@ -19,14 +19,21 @@
    "insiders": "Corbett Ryan",
    "value": 128625,
    "insider_price": 36.75,
-   "status": "waiting",
+   "status": "open",
    "note": "",
    "vol60": 0.548,
    "adv20": 231594737,
    "mcap": 6551348118,
    "buy_pct_of_company": 0.002,
    "score": 43,
-   "limit": 37.8525
+   "limit": 37.8525,
+   "entry_date": "2026-11-17",
+   "open_price": 36.75,
+   "days_held": 0,
+   "ret": -5.5,
+   "spy_ret": -1.15,
+   "excess": -4.34,
+   "net_excess": -5.04
   },
   {
    "ticker": "BW",
@@ -36,14 +43,16 @@
    "insiders": "Frymyer Cameron M",
    "value": 42100,
    "insider_price": 4.21,
-   "status": "waiting",
-   "note": "",
+   "status": "skipped",
+   "note": "opened +5.0% vs CFO price (limit not filled)",
    "vol60": 1.011,
    "adv20": 23728868,
    "mcap": 612327668,
    "buy_pct_of_company": 0.0069,
    "score": 66,
-   "limit": 4.3363
+   "limit": 4.3363,
+   "entry_date": "2026-11-17",
+   "open_price": 4.42
   },
   {
    "ticker": "ADIG",
@@ -53,14 +62,21 @@
    "insiders": "Aarnes Robert B, Cardazzi Marco, Carlet Michael, Copeland Alicia Crispin, Lane Jeannine J",
    "value": 325603,
    "insider_price": 9.86,
-   "status": "waiting",
+   "status": "open",
    "note": "",
    "vol60": 1.487,
    "adv20": 12408240,
    "mcap": 749381248,
    "buy_pct_of_company": 0.0434,
    "score": 87,
-   "limit": 10.1558
+   "limit": 10.1558,
+   "entry_date": "2026-11-17",
+   "open_price": 9.95,
+   "days_held": 0,
+   "ret": -3.37,
+   "spy_ret": -1.15,
+   "excess": -2.21,
+   "net_excess": -3.31
   }
  ],
  "runs": [
@@ -81,11 +97,117 @@
    "for_day": "2026-11-17",
    "new": 4,
    "errors": []
+  },
+  {
+   "at": "2026-11-17 15:06 ET",
+   "for_day": "2026-11-17",
+   "new": 0,
+   "provisional": 0,
+   "errors": []
   }
  ],
- "updated": "2026-11-17 01:15 ET",
+ "updated": "2026-11-17 15:06 ET",
  "paper": {
-  "start": null,
-  "note": "starts at the next market open"
- }
+  "start": "2026-11-17",
+  "start_value": 100000.0,
+  "as_of": "2026-11-17",
+  "intraday": true,
+  "value": 98097.34,
+  "ret": -1.9,
+  "sp_value": 98847.49,
+  "sp_ret": -1.15,
+  "cash": 253.09,
+  "spy_shares": 108,
+  "spy_value": 78827.04,
+  "in_stocks": 19.4,
+  "max_drop": -1.9,
+  "slots_used": 2,
+  "slots": 10,
+  "holdings": [
+   {
+    "ticker": "ADIG",
+    "shares": 999,
+    "bought": "2026-11-17",
+    "buy_px": 10.0047,
+    "last_px": 9.615,
+    "value": 9605.38,
+    "ret": -3.9,
+    "days_held": 0,
+    "sell_on": "about 2027-02-16"
+   },
+   {
+    "ticker": "MP",
+    "shares": 271,
+    "bought": "2026-11-17",
+    "buy_px": 36.8786,
+    "last_px": 34.73,
+    "value": 9411.83,
+    "ret": -5.83,
+    "days_held": 0,
+    "sell_on": "about 2027-02-16"
+   }
+  ],
+  "trades": [],
+  "log": [
+   {
+    "date": "2026-11-17",
+    "action": "SPY BUY",
+    "ticker": "SPY",
+    "shares": 135,
+    "price": 738.39,
+    "amount": -99692.62,
+    "cash": 307.38,
+    "note": "start: $100,000 into the S&P"
+   },
+   {
+    "date": "2026-11-17",
+    "action": "SPY SELL",
+    "ticker": "SPY",
+    "shares": 14,
+    "price": 738.39,
+    "amount": 10336.43,
+    "cash": 10643.81,
+    "note": "to pay for ADIG"
+   },
+   {
+    "date": "2026-11-17",
+    "action": "BUY",
+    "ticker": "ADIG",
+    "shares": 999,
+    "price": 10.0047,
+    "amount": -9994.72,
+    "cash": 649.09,
+    "note": "score 87, 10.0% of account"
+   },
+   {
+    "date": "2026-11-17",
+    "action": "SPY SELL",
+    "ticker": "SPY",
+    "shares": 13,
+    "price": 738.39,
+    "amount": 9598.11,
+    "cash": 10247.2,
+    "note": "to pay for MP"
+   },
+   {
+    "date": "2026-11-17",
+    "action": "BUY",
+    "ticker": "MP",
+    "shares": 271,
+    "price": 36.8786,
+    "amount": -9994.11,
+    "cash": 253.09,
+    "note": "score 43, 10.0% of account"
+   }
+  ],
+  "history": [
+   {
+    "date": "2026-11-17",
+    "value": 98097.34,
+    "sp": 98847.49,
+    "in_stocks": 19.4
+   }
+  ]
+ },
+ "pending_filings": []
 }

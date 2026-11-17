@@ -1,4 +1,4 @@
-"""CFO insider-buy forward tracker. Run once each evening (after 10pm ET).
+"""CFO insider-buy forward tracker. Safe for morning, evening and manual checks.
 Usage: python3 tracker.py <data.json> <config.json> [--today YYYY-MM-DD]
 Rules (same as the backtest):
   - OpenInsider open-market purchases, each row >= $25k, grouped by ticker + filing day
@@ -6,7 +6,7 @@ Rules (same as the backtest):
   - CFO-day average price >= $2
   - score = average of percentile(buy value / market cap) and percentile(60-day volatility),
     percentiles vs 2013-2020 CFO buys; need >= 0.33
-  - routine: check once each evening -> buy at the NEXT trading day's open with a limit at 3% above the
+  - finalize filings each evening -> buy at the NEXT trading day's open with a limit at 3% above the
     insider price. If the open is above the limit it counts as skipped (conservative: no later fill).
   - sell at the close 63 trading days after entry. Compare with SPY over the exact same open->close.
 """
@@ -18,8 +18,21 @@ DATA, CFG = sys.argv[1], sys.argv[2]
 cfg = json.load(open(CFG))
 state = json.load(open(DATA)) if __import__('os').path.exists(DATA) else {"signals": [], "runs": []}
 ET = ZoneInfo('America/New_York')
-today = pd.Timestamp(sys.argv[sys.argv.index('--today')+1]) if '--today' in sys.argv else pd.Timestamp(dt.datetime.now(ET).date())
+now_et = dt.datetime.now(ET)
+replay = '--today' in sys.argv
+today = pd.Timestamp(sys.argv[sys.argv.index('--today')+1]) if replay else pd.Timestamp(now_et.date())
 errors = []
+
+def session_started(day):
+    day = pd.Timestamp(day).date()
+    return day < today.date() or (day == today.date() and (replay or (now_et.hour, now_et.minute) >= (9, 30)))
+
+def session_complete(day):
+    # Allow daily quotes to settle. Early closes also finalize by the evening run.
+    day = pd.Timestamp(day).date()
+    return day < today.date() or (day == today.date() and (replay or (now_et.hour, now_et.minute) >= (16, 15)))
+
+filings_final = replay or (now_et.hour, now_et.minute) >= (22, 5)
 
 BASE = ("http://openinsider.com/screener?s=&o=&pl=&ph=&ll=&lh=&fd=-1&fdr={a}+-+{b}&td=0&tdr=&fdlyl=&fdlyh=&daysago="
         "&xp=1&vl=25&vh=&ocl=&och=&sic1=-1&sicl=100&sich=9999&grp=0&nfl=&nfh=&nil=&nih=&nol=&noh=&v2l=&v2h=&oc2l=&oc2h="
@@ -55,10 +68,12 @@ def hist(t, adjusted=True, start=None):
 
 # ---------- 1. new CFO buy events ----------
 known = {(s['ticker'], s['filing_day']) for s in state['signals']}
+new_count = 0
 LB = int(sys.argv[sys.argv.index('--lookback')+1]) if '--lookback' in sys.argv else 60
 look_from = max(pd.Timestamp(cfg['start']), today - pd.Timedelta(days=LB))
 try:
     raw = scrape(look_from, today)
+    state['pending_filings'] = []
 except Exception as e:
     raw = pd.DataFrame(); errors.append(f'scrape: {e}')
 if len(raw):
@@ -76,15 +91,22 @@ if len(raw):
                                             cfo=('cfo', 'max'), fdt=('fdt', 'min'),
                                             cfo_names=('insider', lambda s: ', '.join(sorted(set(s))))).reset_index()
     ev = ev[ev.cfo & (ev.fday >= pd.Timestamp(cfg['start']))]
-    now_et = dt.datetime.now(ET)
-    if '--today' not in sys.argv and (now_et.hour, now_et.minute) < (22, 5):   # SEC takes filings until 10pm ET:
-        ev = ev[ev.fday < today]                                              # leave today's for tonight's run
+    if not filings_final:
+        # Rebuild today's preview each time: later filings can change a ticker's daily group.
+        # These previews never enter the strategy or paper account until nightly finalization.
+        for _, e in ev[ev.fday == today].iterrows():
+            state['pending_filings'].append(dict(ticker=e.ticker, company=e.company,
+                filing_day=e.fday.strftime('%Y-%m-%d'), filing_time=e.fdt.strftime('%Y-%m-%d %H:%M'),
+                insiders=e.cfo_names, value=round(float(e.value)), insider_price=round(float(e.price), 4),
+                status='provisional', note='Reported today; pending nightly review'))
+        ev = ev[ev.fday < today]
     for _, e in ev.iterrows():
         k = (e.ticker, e.fday.strftime('%Y-%m-%d'))
         if k in known: continue
         s = dict(ticker=e.ticker, company=e.company, filing_day=k[1], filing_time=e.fdt.strftime('%Y-%m-%d %H:%M'),
                  insiders=e.cfo_names, value=round(float(e.value)), insider_price=round(float(e.price), 4), status='new', note='')
         state['signals'].append(s); known.add(k)
+        new_count += 1
 
 # ---------- 2. score new signals ----------
 for s in state['signals']:
@@ -123,6 +145,8 @@ for s in state['signals']:
         after = raw_h[raw_h.index > pd.Timestamp(s['filing_day'])]
         if not len(after): continue                       # next open hasn't happened yet
         d0 = after.index[0]; op = float(after.Open.iloc[0])
+        if not session_started(d0): continue
+        if not np.isfinite(op) or op <= 0: raise ValueError('opening price is not available yet')
         s['entry_date'] = d0.strftime('%Y-%m-%d'); s['open_price'] = round(op, 4)
         if op > s['limit']:
             s['status'] = 'skipped'; s['note'] = f"opened {op / s['insider_price'] * 100 - 100:+.1f}% vs CFO price (limit not filled)"
@@ -150,7 +174,7 @@ for s in state['signals']:
         rs = float(sp.Close.iloc[j] / sp.Open.iloc[0] - 1)
         s.update(days_held=int(i), ret=round(r * 100, 2), spy_ret=round(rs * 100, 2), excess=round((r - rs) * 100, 2),
                  net_excess=round((r - rs - cost_est(s.get('adv20', 1e6))) * 100, 2))
-        if done or stale:
+        if (done or stale) and session_complete(a.index[i]):
             s['status'] = 'closed'; s['exit_date'] = a.index[i].strftime('%Y-%m-%d')
             if stale and not done: s['note'] = 'data stopped (delisted?) - closed at last price'
     except Exception as ex:
@@ -158,7 +182,7 @@ for s in state['signals']:
 
 
 # ---------- 5. paper account ($100k, same rules as the backtest) ----------
-# Rebuilt from scratch every night from the signals above + Yahoo prices, so a missed night changes nothing.
+# Rebuilt on each check from the signals above + Yahoo prices, so repeated checks do not duplicate buys.
 #  - spare cash sits in SPY (whole shares, 0.01% cost each way)
 #  - each filled signal: buy at its entry-day open, 10% of the account (value at the previous close),
 #    paid for by selling SPY; max 10 stocks at once; if all 10 are full the signal is skipped
@@ -176,7 +200,7 @@ def paper_account():
             if c not in d: d[c] = 0.0
         return d
     spy = dl('SPY', (pd.Timestamp(cfg['start']) - pd.Timedelta(days=7)).strftime('%Y-%m-%d'))
-    days = spy.index[spy.index > pd.Timestamp(cfg['start'])]
+    days = spy.index[(spy.index > pd.Timestamp(cfg['start'])) & spy.index.map(session_started)]
     if not len(days): return {'start': None, 'note': 'starts at the next market open'}
     spy_adj = hist('SPY', True, '2026-01-01'); spy_adj = spy_adj[spy_adj.index >= days[0]]
     sigs = [s for s in state['signals'] if s['status'] in ('open', 'closed') and s.get('entry_date')]
@@ -222,15 +246,17 @@ def paper_account():
             add(d, 'BUY', s['ticker'], n, p, -n * p, f"score {s.get('score')}, {n * p / prev_val * 100:.1f}% of account")
             taken.add(key)
         # ---- close: dividends, 63-day sells, sweep cash into SPY
-        dv = float(spy.Dividends.loc[d])
-        if dv > 0 and spy_sh: cash += spy_sh * dv; add(d, 'DIVIDEND', 'SPY', spy_sh, dv, spy_sh * dv)
-        for q in pos:
-            h = px[q['ticker']]
-            if d in h.index and float(h.Dividends.loc[d]) > 0:
-                a = q['shares'] * float(h.Dividends.loc[d]); cash += a; q['divs'] = q.get('divs', 0) + a
-                add(d, 'DIVIDEND', q['ticker'], q['shares'], float(h.Dividends.loc[d]), a)
+        complete = session_complete(d)
+        if complete:
+            dv = float(spy.Dividends.loc[d])
+            if dv > 0 and spy_sh: cash += spy_sh * dv; add(d, 'DIVIDEND', 'SPY', spy_sh, dv, spy_sh * dv)
+            for q in pos:
+                h = px[q['ticker']]
+                if d in h.index and float(h.Dividends.loc[d]) > 0:
+                    a = q['shares'] * float(h.Dividends.loc[d]); cash += a; q['divs'] = q.get('divs', 0) + a
+                    add(d, 'DIVIDEND', q['ticker'], q['shares'], float(h.Dividends.loc[d]), a)
         for q in list(pos):
-            if q['exit'] is not None and d >= q['exit']:
+            if complete and q['exit'] is not None and d >= q['exit']:
                 c = last_close(q['ticker'], d); p = c * (1 - q['half']); a = q['shares'] * p
                 cash += a; pos.remove(q)
                 r = (a + q.get('divs', 0)) / q['cost'] - 1
@@ -238,7 +264,7 @@ def paper_account():
                                    shares=q['shares'], buy_px=round(q['buy_px'], 4), sell_px=round(p, 4), ret=round(r * 100, 2),
                                    profit=round(a + q.get('divs', 0) - q['cost'], 2)))
                 add(d, 'SELL', q['ticker'], q['shares'], p, a, f"after {cfg['hold']} trading days: {r * 100:+.1f}%")
-        n = int(cash // (sc * (1 + SPYC)))
+        n = int(cash // (sc * (1 + SPYC))) if complete else 0
         if n > 0: cash -= n * sc * (1 + SPYC); spy_sh += n; add(d, 'SPY BUY', 'SPY', n, sc, -n * sc * (1 + SPYC), 'park spare cash')
         stocks = sum(q['shares'] * (last_close(q['ticker'], d) or 0) for q in pos)
         val = cash + spy_sh * sc + stocks
@@ -257,7 +283,8 @@ def paper_account():
                              buy_px=round(q['buy_px'], 4), last_px=round(c, 4), value=round(v, 2),
                              ret=round((v + q.get('divs', 0)) / q['cost'] * 100 - 100, 2), days_held=held, sell_on=sell))
     last = hist_rows[-1]
-    return dict(start=days[0].strftime('%Y-%m-%d'), start_value=START_CASH, as_of=last['date'], value=last['value'],
+    return dict(start=days[0].strftime('%Y-%m-%d'), start_value=START_CASH, as_of=last['date'],
+                intraday=not session_complete(d), value=last['value'],
                 ret=round(last['value'] / START_CASH * 100 - 100, 2), sp_value=last['sp'],
                 sp_ret=None if last['sp'] is None else round(last['sp'] / START_CASH * 100 - 100, 2),
                 cash=round(cash, 2), spy_shares=int(spy_sh), spy_value=round(spy_sh * float(spy.Close.loc[d]), 2),
@@ -268,10 +295,10 @@ try:
 except Exception as ex:
     errors.append(f'paper account: {ex}')
 
-state['runs'] = (state.get('runs', []) + [dict(at=dt.datetime.now(ET).strftime('%Y-%m-%d %H:%M ET'), for_day=today.strftime('%Y-%m-%d'),
-                 new=sum(1 for s in state['signals'] if s.get('filing_day', '') >= (today - pd.Timedelta(days=10)).strftime('%Y-%m-%d')),
+state['runs'] = (state.get('runs', []) + [dict(at=now_et.strftime('%Y-%m-%d %H:%M ET'), for_day=today.strftime('%Y-%m-%d'),
+                 new=new_count, provisional=len(state.get('pending_filings', [])),
                  errors=errors)])[-60:]
-state['updated'] = dt.datetime.now(ET).strftime('%Y-%m-%d %H:%M ET')
+state['updated'] = now_et.strftime('%Y-%m-%d %H:%M ET')
 state['signals'].sort(key=lambda s: (s['filing_day'], s['ticker']), reverse=True)
 def clean(o):
     if isinstance(o, dict): return {k: clean(v) for k, v in o.items()}

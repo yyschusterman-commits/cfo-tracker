@@ -151,9 +151,9 @@ function paper(){
 function render(t){
   const S=D.signals;let h;
   if(t==='score')h=scorecard();
-  if(t==='open')h=table(S.filter(s=>s.status==='open'),[['Ticker',s=>s.ticker],['Bought',s=>s.entry_date],['Buy $',s=>s.open_price],['CFO $',s=>s.insider_price],['Days',s=>s.days_held],['Return',s=>f(s.ret),s=>cls(s.ret)],['S&P',s=>f(s.spy_ret),s=>cls(s.spy_ret)],['Beat',s=>f(s.excess),s=>cls(s.excess)],['Score',s=>s.score]]);
+  if(t==='open')h=table(S.filter(s=>s.status==='open'),[['Ticker',s=>s.ticker],['Bought',s=>s.entry_date],['Buy $',s=>s.open_price],['Avg price paid',s=>s.insider_price],['Days',s=>s.days_held],['Return',s=>f(s.ret),s=>cls(s.ret)],['S&P',s=>f(s.spy_ret),s=>cls(s.spy_ret)],['Beat',s=>f(s.excess),s=>cls(s.excess)],['Score',s=>s.score]]);
   if(t==='closed')h=table(S.filter(s=>s.status==='closed'),[['Ticker',s=>s.ticker],['Bought',s=>s.entry_date],['Sold',s=>s.exit_date],['Return',s=>f(s.ret),s=>cls(s.ret)],['S&P',s=>f(s.spy_ret),s=>cls(s.spy_ret)],['Beat',s=>f(s.excess),s=>cls(s.excess)],['After costs',s=>f(s.net_excess),s=>cls(s.net_excess)],['Note',s=>s.note,()=>'wrap']]);
-  if(t==='all')h=table([...(D.pending_filings||[]),...S],[['Filed',s=>s.filing_time],['Ticker',s=>s.ticker],['Value',s=>'$'+Math.round(s.value/1000)+'k'],['CFO $',s=>s.insider_price],['Score',s=>s.score],['Status',s=>s.status],['Note',s=>s.note,()=>'wrap']]);
+  if(t==='all')h=table([...(D.pending_filings||[]),...S],[['Filed',s=>s.filing_time],['Ticker',s=>s.ticker],['Total bought',s=>'$'+Math.round(s.value/1000)+'k'],['Avg price paid',s=>s.insider_price],['Score',s=>s.score],['Status',s=>s.status],['Note',s=>s.note,()=>'wrap']]);
   if(t==='paper')h=paper();
   $('#view').innerHTML=h;
 }

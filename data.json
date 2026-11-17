@@ -75,9 +75,15 @@
    "for_day": "2026-11-17",
    "new": 4,
    "errors": []
+  },
+  {
+   "at": "2026-11-17 01:15 ET",
+   "for_day": "2026-11-17",
+   "new": 4,
+   "errors": []
   }
  ],
- "updated": "2026-11-17 01:04 ET",
+ "updated": "2026-11-17 01:15 ET",
  "paper": {
   "start": null,
   "note": "starts at the next market open"

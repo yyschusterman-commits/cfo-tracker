@@ -1,43 +1,92 @@
 name: Nightly CFO tracker
+
 on:
   schedule:
-    - cron: '41 3 * * 2-6'   # 03:41 UTC Tue-Sat = Mon-Fri evening in New York, after the SEC 10pm filing cutoff
+    # One hour after the regular US market open, including across daylight saving changes.
+    - cron: '30 10 * * 1-5'
+      timezone: America/New_York
+    # Finalize the day's filing groups after the existing 10:05pm ET cutoff.
+    - cron: '41 22 * * 1-5'
+      timezone: America/New_York
   workflow_dispatch: {}
+
 permissions:
   contents: write
+  pages: write
+  id-token: write
+
 concurrency:
   group: tracker
   cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash
+
 jobs:
   run:
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
       - run: pip install pandas numpy lxml yfinance
       - name: Run tracker
         run: |
+          set -euo pipefail
           cp data.json data_before.json
           python tracker.py data.json config.json | tee run.log
-      - name: Sanity check
+      - name: Check results
         run: |
           python - <<'PY'
-          import json
-          a=json.load(open('data_before.json')); b=json.load(open('data.json'))
-          assert len(b['signals'])>=len(a['signals']), 'signals shrank'
-          assert b.get('updated'), 'no timestamp'
-          errs=b['runs'][-1].get('errors',[])
-          print('errors this run:',errs)
+          import collections, json, os
+          before = json.load(open('data_before.json'))
+          after = json.load(open('data.json'))
+          old = {(s['ticker'], s['filing_day']) for s in before['signals']}
+          new = {(s['ticker'], s['filing_day']) for s in after['signals']}
+          assert old <= new, 'existing signals were removed'
+          assert len(new) == len(after['signals']), 'duplicate signals'
+          assert after.get('updated'), 'no timestamp'
+          counts = collections.Counter(s['status'] for s in after['signals'])
+          last = after['runs'][-1]
+          with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as out:
+              out.write(f"## CFO tracker checked {after['updated']}\n\n")
+              out.write(f"New finalized signals: {last.get('new', 0)}\n\n")
+              out.write(f"Today's provisional filings: {len(after.get('pending_filings', []))}\n\n")
+              out.write('\n'.join(f'- {k}: {v}' for k, v in sorted(counts.items())) + '\n\n')
+              for error in last.get('errors', []):
+                  out.write(f'- Data check warning: {error}\n')
+          print('errors this run:', last.get('errors', []))
           PY
-      - name: Save
+      - name: Save updated data
         run: |
-          rm -f data_before.json run.log
           git config user.name "cfo-tracker"
           git config user.email "cfo-tracker@users.noreply.github.com"
           git add data.json
-          git commit -m "Nightly update $(date -u +%F)" || echo "nothing to commit"
-          git pull --rebase origin ${{ github.ref_name }} || true
-          git push
+          if ! git diff --cached --quiet; then
+            git commit -m "Tracker check $(date -u +%F-%H%M)"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
+      - name: Prepare website
+        run: |
+          mkdir -p _site
+          cp index.html data.json config.json _site/
+          touch _site/.nojekyll
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+      - name: Upload website
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - name: Publish updated website
+        id: deployment
+        uses: actions/deploy-pages@v5

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CFO Buy Tracker</title>
+<style>
+:root{--bg:#F6F7F9;--card:#fff;--ink:#141A26;--muted:#667085;--line:#E4E7EC;--accent:#2E5BFF;--good:#12A150;--bad:#E0485F;
+  --mono:ui-monospace,SFMono-Regular,Menlo,monospace;--body:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,sans-serif}
+@media (prefers-color-scheme:dark){:root{--bg:#0E1117;--card:#161B24;--ink:#E8ECF3;--muted:#98A2B3;--line:#283040;--accent:#6D8BFF;--good:#34D399;--bad:#FF6B80}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 var(--body)}
+main{max-width:860px;margin:0 auto;padding:22px 16px 60px;display:flex;flex-direction:column;gap:14px}
+h1{font-size:28px;line-height:1.15;margin:0}h2{font-size:17px;margin:0 0 10px}
+.muted{color:var(--muted)}.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
+.tabs{display:flex;gap:6px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:5px;overflow-x:auto}
+.tab{flex:1;border:0;background:none;color:var(--muted);font:600 14px var(--body);padding:10px 12px;border-radius:10px;cursor:pointer;white-space:nowrap}
+.tab[aria-selected=true]{background:var(--ink);color:var(--card)}
+.big{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.stat{border:1px solid var(--line);border-radius:12px;padding:12px}.stat b{display:block;font:700 22px/1.1 var(--mono)}.stat span{font-size:12.5px;color:var(--muted)}
+.verdict{font:700 18px/1.3 var(--body);padding:14px;border-radius:12px;border:1px solid var(--line)}
+.bar{height:10px;background:var(--line);border-radius:99px;overflow:hidden}.bar i{display:block;height:100%;background:var(--accent)}
+table{width:100%;border-collapse:collapse;font:13px/1.35 var(--mono);font-variant-numeric:tabular-nums}
+th{font-size:11.5px;color:var(--muted);text-align:left;padding:7px 6px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:8px 6px;border-bottom:1px solid var(--line);white-space:nowrap}td.wrap{white-space:normal;font-family:var(--body);color:var(--muted)}
+.scroll{overflow-x:auto}.pos{color:var(--good)}.neg{color:var(--bad)}
+.kv{display:grid;grid-template-columns:1fr auto;gap:6px 12px;font-size:14px}.kv b{font-family:var(--mono)}
+.note{font-size:13px;color:var(--muted)}
+@media (max-width:560px){.big{grid-template-columns:1fr 1fr}.stat b{font-size:19px}}
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>CFO Buy Tracker</h1>
+    <p class="muted" id="sub" style="margin:4px 0 0">Every qualifying CFO buy since Nov 16, 2026, held 3 months, compared with the S&amp;P.</p>
+  </header>
+  <div class="tabs" role="tablist">
+    <button class="tab" aria-selected="true" data-t="score">Scorecard</button>
+    <button class="tab" aria-selected="false" data-t="open">Open</button>
+    <button class="tab" aria-selected="false" data-t="closed">Finished</button>
+    <button class="tab" aria-selected="false" data-t="all">All signals</button>
+    <button class="tab" aria-selected="false" data-t="paper">Paper account</button>
+  </div>
+  <section id="view"></section>
+  <p class="note" style="text-align:center" id="foot"></p>
+</main>
+<script>
+const $=s=>document.querySelector(s);
+let D={signals:[],runs:[]},C={};
+const f=(v,d=1)=>v==null||isNaN(v)?'–':(v>0?'+':'')+(+v).toFixed(d)+'%';
+const cls=v=>v>0?'pos':(v<0?'neg':'');
+const mean=a=>a.reduce((x,y)=>x+y,0)/a.length;
+const median=a=>{const b=[...a].sort((x,y)=>x-y),m=b.length>>1;return b.length%2?b[m]:(b[m-1]+b[m])/2};
+const sd=a=>{const m=mean(a);return Math.sqrt(a.reduce((s,x)=>s+(x-m)**2,0)/(a.length-1))};
+function ncdf(z){const t=1/(1+0.2316419*Math.abs(z)),d=0.3989423*Math.exp(-z*z/2);const p=d*t*(0.3193815+t*(-0.3565638+t*(1.781478+t*(-1.821256+t*1.330274))));return z>0?1-p:p}
+
+function scorecard(){
+  const S=D.signals,cl=S.filter(s=>s.status==='closed'),op=S.filter(s=>s.status==='open');
+  const n=cl.length,cnt=k=>S.filter(s=>s.status===k).length;
+  const skS=S.filter(s=>s.status==='skipped'&&/score|\$2|history/.test(s.note)).length, skL=S.filter(s=>s.status==='skipped'&&/limit/.test(s.note)).length;
+  let h=`<div class="card"><h2>Is the edge real?</h2>`;
+  if(n<2){h+=`<div class="verdict">Waiting for results</div><p class="note">Each trade needs 3 months to finish, so the first results arrive around mid-February 2027. ${op.length} trade${op.length===1?' is':'s are'} open now.</p>`;}
+  else{
+    const x=cl.map(s=>s.net_excess),m=mean(x),se=sd(x)/Math.sqrt(n),tc=1.96+2.5/(n-1),lo=m-tc*se,hi=m+tc*se,p=1-ncdf(m/se);
+    let v,c;
+    if(n<30){v='Too early to tell';c='var(--muted)'} else if(lo>0){v='Edge looks real';c='var(--good)'} else if(hi<0){v='Losing to the S&P';c='var(--bad)'} else {v='Not clear yet';c='var(--muted)'}
+    h+=`<div class="verdict" style="color:${c}">${v}</div>
+    <div class="big" style="margin-top:12px">
+      <div class="stat"><b class="${cls(m)}">${f(m)}</b><span>avg beat vs S&amp;P per trade, after costs</span></div>
+      <div class="stat"><b>${Math.round(cl.filter(s=>s.excess>0).length/n*100)}%</b><span>trades that beat the S&amp;P</span></div>
+      <div class="stat">${m>0?`<b>${(p*100).toFixed(p<0.01?1:0)}%</b><span>chance it's just luck</span>`:`<b>–</b><span>no sign of an edge yet</span>`}</div>
+    </div>
+    <p style="margin:12px 0 4px">True edge is likely between <b class="${cls(lo)}">${f(lo)}</b> and <b class="${cls(hi)}">${f(hi)}</b> per trade.</p>`;
+  }
+  const pr=Math.min(100,n);
+  h+=`<p class="note" style="margin:12px 0 6px">${n} of 100 finished trades (the point where the answer gets trustworthy)</p><div class="bar"><i style="width:${pr}%"></i></div></div>`;
+  if(n>=1){const x=cl.map(s=>s.excess),r=cl.map(s=>s.ret),sp=cl.map(s=>s.spy_ret);
+    h+=`<div class="card"><h2>Finished trades vs backtest</h2><div class="kv">
+    <span>Avg return per trade</span><b class="${cls(mean(r))}">${f(mean(r))}</b>
+    <span>Avg S&amp;P over same days</span><b class="${cls(mean(sp))}">${f(mean(sp))}</b>
+    <span>Avg beat (before costs)</span><b class="${cls(mean(x))}">${f(mean(x))}</b>
+    <span>Median beat</span><b class="${cls(median(x))}">${f(median(x))}</b>
+    <span>Trades with a gain</span><b>${Math.round(cl.filter(s=>s.ret>0).length/n*100)}%</b>
+    <span>Backtest avg beat after costs</span><b>+${C.backtest?.excess_2021}% to +${C.backtest?.excess_full}%</b>
+    <span>Backtest trades with a gain</span><b>${C.backtest?.win}%</b></div></div>`;}
+  h+=`<div class="card"><h2>Signals so far</h2><div class="kv">
+    <span>CFO buys found</span><b>${S.length}</b><span>Skipped (score under 33 / price / data)</span><b>${skS}</b>
+    <span>Skipped (opened over the 3% limit)</span><b>${skL}</b><span>Waiting for next open</span><b>${cnt('waiting')+cnt('new')}</b>
+    <span>Open</span><b>${op.length}</b><span>Finished</span><b>${n}</b></div>
+    <p class="note" style="margin:12px 0 0">Trades overlap in time, so a market crash hits many at once. Treat the luck number as rough.</p></div>`;
+  return h;
+}
+function table(rows,cols){
+  if(!rows.length)return `<div class="card"><p class="muted" style="margin:0">Nothing here yet.</p></div>`;
+  return `<div class="card scroll"><table><tr>${cols.map(c=>`<th>${c[0]}</th>`).join('')}</tr>${rows.map(s=>`<tr>${cols.map(c=>{const v=c[1](s);return `<td class="${c[2]?c[2](s):''}">${v??'–'}</td>`}).join('')}</tr>`).join('')}</table></div>`;
+}
+
+const money=v=>v==null?'–':'$'+Math.round(v).toLocaleString('en-US');
+const px=v=>v==null?'–':'$'+(+v).toFixed(2);
+function chart(H){
+  if(H.length<2)return '';
+  const W=Math.max(340,Math.min(800,innerWidth-70)),Ht=Math.round(W*0.32)+70,p={l:58,r:10,t:10,b:24},vals=H.flatMap(r=>[r.value,r.sp].filter(v=>v!=null));
+  let lo=Math.min(...vals),hi=Math.max(...vals);const pad=(hi-lo)*0.08||1000;lo-=pad;hi+=pad;
+  const X=i=>p.l+i/(H.length-1)*(W-p.l-p.r),Y=v=>p.t+(1-(v-lo)/(hi-lo))*(Ht-p.t-p.b);
+  const line=k=>H.map((r,i)=>r[k]==null?'':`${i?'L':'M'}${X(i).toFixed(1)},${Y(r[k]).toFixed(1)}`).join('');
+  let g='';for(let j=0;j<=4;j++){const v=lo+(hi-lo)*j/4;g+=`<line x1="${p.l}" x2="${W-p.r}" y1="${Y(v)}" y2="${Y(v)}" stroke="var(--line)"/><text x="${p.l-6}" y="${Y(v)+4}" text-anchor="end" font-size="11" fill="var(--muted)">$${Math.round(v/1000)}k</text>`}
+  const lab=[0,H.length-1].map(i=>`<text x="${X(i)}" y="${Ht-6}" text-anchor="${i?'end':'start'}" font-size="11" fill="var(--muted)">${H[i].date}</text>`).join('');
+  return `<svg viewBox="0 0 ${W} ${Ht}" style="width:100%;height:auto;display:block">${g}${lab}
+  <path d="${line('sp')}" fill="none" stroke="var(--muted)" stroke-width="1.6" stroke-dasharray="4 3"/>
+  <path d="${line('value')}" fill="none" stroke="var(--accent)" stroke-width="2.2"/></svg>
+  <p class="note" style="margin:6px 0 0"><b style="color:var(--accent)">—</b> Paper account &nbsp; <b>- -</b> Same $100k in the S&amp;P</p>`;
+}
+let showAll=false;
+function paper(){
+  const P=D.paper;
+  if(!P||!P.start)return `<div class="card"><h2>Paper account</h2><p style="margin:0">Starts with $100,000 at the next market open. The first night after that, this tab fills in.</p></div>`;
+  let h=`<div class="card"><h2>$100,000 paper account <span class="muted" style="font-weight:400">since ${P.start}</span></h2>
+  <div class="big">
+    <div class="stat"><b class="${cls(P.ret)}">${f(P.ret)}</b><span>account (${money(P.value)})</span></div>
+    <div class="stat"><b class="${cls(P.sp_ret)}">${f(P.sp_ret)}</b><span>S&amp;P, same $100k (${money(P.sp_value)})</span></div>
+    <div class="stat"><b>${f(P.max_drop)}</b><span>worst drop from a high</span></div>
+  </div><div style="margin-top:14px">${chart(P.history)}</div></div>`;
+  h+=`<div class="card"><h2>Holdings <span class="muted" style="font-weight:400">${P.slots_used} of ${P.slots} slots · ${P.in_stocks}% in stocks</span></h2>`+
+    (P.holdings.length?`<div class="scroll"><table><tr><th>Ticker</th><th>Shares</th><th>Bought</th><th>Buy $</th><th>Now $</th><th>Value</th><th>Return</th><th>Sells</th></tr>${
+    P.holdings.map(q=>`<tr><td>${q.ticker}</td><td>${q.shares}</td><td>${q.bought}</td><td>${px(q.buy_px)}</td><td>${px(q.last_px)}</td><td>${money(q.value)}</td><td class="${cls(q.ret)}">${f(q.ret)}</td><td>${q.sell_on}</td></tr>`).join('')}</table></div>`:'<p class="muted" style="margin:0">No stocks yet.</p>')+
+    `<div class="kv" style="margin-top:12px"><span>S&amp;P fund (SPY), ${P.spy_shares} shares</span><b>${money(P.spy_value)}</b><span>Cash</span><b>${money(P.cash)}</b></div></div>`;
+  const T=[...P.trades].reverse();
+  if(T.length){const r=T.map(t=>t.ret),w=T.filter(t=>t.ret>0).length;
+    h+=`<div class="card scroll"><h2>Finished trades <span class="muted" style="font-weight:400">${T.length} · ${Math.round(w/T.length*100)}% gained · avg ${f(mean(r))}</span></h2><table><tr><th>Ticker</th><th>Bought</th><th>Sold</th><th>Shares</th><th>Buy $</th><th>Sell $</th><th>Return</th><th>Profit</th></tr>${
+    T.map(t=>`<tr><td>${t.ticker}</td><td>${t.bought}</td><td>${t.sold}</td><td>${t.shares}</td><td>${px(t.buy_px)}</td><td>${px(t.sell_px)}</td><td class="${cls(t.ret)}">${f(t.ret)}</td><td class="${cls(t.profit)}">${t.profit<0?'-':''}${money(Math.abs(t.profit))}</td></tr>`).join('')}</table></div>`;}
+  const L=[...P.log].reverse(),Ls=showAll?L:L.slice(0,40);
+  h+=`<div class="card scroll"><h2>Every action <span class="muted" style="font-weight:400">${L.length}</span></h2><table><tr><th>Date</th><th>Action</th><th>Ticker</th><th>Shares</th><th>Price</th><th>Amount</th><th>Cash after</th><th>Note</th></tr>${
+    Ls.map(l=>`<tr><td>${l.date}</td><td>${l.action}</td><td>${l.ticker}</td><td>${l.shares||''}</td><td>${l.price==null?'':px(l.price)}</td><td>${l.amount?(l.amount<0?'-':'+')+money(Math.abs(l.amount)):''}</td><td>${money(l.cash)}</td><td class="wrap">${l.note||''}</td></tr>`).join('')}</table>`+
+    (L.length>40&&!showAll?`<p style="margin:10px 0 0"><button class="tab" style="flex:none;border:1px solid var(--line)" onclick="showAll=true;render('paper')">Show all ${L.length}</button></p>`:'')+`</div>`;
+  h+=`<p class="note">Rules: 10% of the account per signal, max 10 stocks, sell after 63 trading days. Spare cash sits in SPY and gets sold to pay for new buys. If all 10 slots are full, the signal is skipped (it still counts in the Scorecard). Same trading costs as the backtest. Prices from Yahoo.</p>`;
+  return h;
+}
+function render(t){
+  const S=D.signals;let h;
+  if(t==='score')h=scorecard();
+  if(t==='open')h=table(S.filter(s=>s.status==='open'),[['Ticker',s=>s.ticker],['Bought',s=>s.entry_date],['Buy $',s=>s.open_price],['CFO $',s=>s.insider_price],['Days',s=>s.days_held],['Return',s=>f(s.ret),s=>cls(s.ret)],['S&P',s=>f(s.spy_ret),s=>cls(s.spy_ret)],['Beat',s=>f(s.excess),s=>cls(s.excess)],['Score',s=>s.score]]);
+  if(t==='closed')h=table(S.filter(s=>s.status==='closed'),[['Ticker',s=>s.ticker],['Bought',s=>s.entry_date],['Sold',s=>s.exit_date],['Return',s=>f(s.ret),s=>cls(s.ret)],['S&P',s=>f(s.spy_ret),s=>cls(s.spy_ret)],['Beat',s=>f(s.excess),s=>cls(s.excess)],['After costs',s=>f(s.net_excess),s=>cls(s.net_excess)],['Note',s=>s.note,()=>'wrap']]);
+  if(t==='all')h=table(S,[['Filed',s=>s.filing_time],['Ticker',s=>s.ticker],['Value',s=>'$'+Math.round(s.value/1000)+'k'],['CFO $',s=>s.insider_price],['Score',s=>s.score],['Status',s=>s.status],['Note',s=>s.note,()=>'wrap']]);
+  if(t==='paper')h=paper();
+  $('#view').innerHTML=h;
+}
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.setAttribute('aria-selected',x===b));render(b.dataset.t)});
+Promise.all([fetch('data.json',{cache:'no-store'}).then(r=>r.json()),fetch('config.json').then(r=>r.json())]).then(([d,c])=>{
+  D=d;C=c;const last=d.runs?.[d.runs.length-1];
+  $('#foot').textContent=`Updated ${d.updated||'not yet'} · runs every weekday evening after 10pm ET`+(last?.errors?.length?` · last run had ${last.errors.length} error(s)`:'');
+  render('score');
+}).catch(e=>{$('#view').innerHTML=`<div class="card">Could not load data: ${e}</div>`});
+</script>
+</body>
+</html>

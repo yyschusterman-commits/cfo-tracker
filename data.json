@@ -1,0 +1,85 @@
+{
+ "signals": [
+  {
+   "ticker": "REI",
+   "company": "Ring Energy, Inc.",
+   "filing_day": "2026-11-16",
+   "filing_time": "2026-11-16 16:35",
+   "insiders": "Johl Sundip Singh",
+   "value": 70087,
+   "insider_price": 1.21,
+   "status": "skipped",
+   "note": "price under $2"
+  },
+  {
+   "ticker": "MP",
+   "company": "Mp Materials Corp. / De",
+   "filing_day": "2026-11-16",
+   "filing_time": "2026-11-16 20:10",
+   "insiders": "Corbett Ryan",
+   "value": 128625,
+   "insider_price": 36.75,
+   "status": "waiting",
+   "note": "",
+   "vol60": 0.548,
+   "adv20": 231594737,
+   "mcap": 6551348118,
+   "buy_pct_of_company": 0.002,
+   "score": 43,
+   "limit": 37.8525
+  },
+  {
+   "ticker": "BW",
+   "company": "Babcock & Wilcox Enterprises, Inc.",
+   "filing_day": "2026-11-16",
+   "filing_time": "2026-11-16 14:29",
+   "insiders": "Frymyer Cameron M",
+   "value": 42100,
+   "insider_price": 4.21,
+   "status": "waiting",
+   "note": "",
+   "vol60": 1.011,
+   "adv20": 23728868,
+   "mcap": 612327668,
+   "buy_pct_of_company": 0.0069,
+   "score": 66,
+   "limit": 4.3363
+  },
+  {
+   "ticker": "ADIG",
+   "company": "Adi Global Distribution Inc.",
+   "filing_day": "2026-11-16",
+   "filing_time": "2026-11-16 18:09",
+   "insiders": "Aarnes Robert B, Cardazzi Marco, Carlet Michael, Copeland Alicia Crispin, Lane Jeannine J",
+   "value": 325603,
+   "insider_price": 9.86,
+   "status": "waiting",
+   "note": "",
+   "vol60": 1.487,
+   "adv20": 12408240,
+   "mcap": 749381248,
+   "buy_pct_of_company": 0.0434,
+   "score": 87,
+   "limit": 10.1558
+  }
+ ],
+ "runs": [
+  {
+   "at": "2026-11-16 20:24 ET",
+   "for_day": "2026-11-16",
+   "new": 0,
+   "errors": []
+  },
+  {
+   "at": "2026-11-17 01:04 ET",
+   "for_day": "2026-11-17",
+   "new": 4,
+   "errors": []
+  }
+ ],
+ "updated": "2026-11-17 01:04 ET",
+ "paper": {
+  "start": null,
+  "note": "starts at the next market open"
+ }
+}

@@ -72,8 +72,8 @@ function scorecard(){
     </div>
     <p style="margin:12px 0 4px">True edge is likely between <b class="${cls(lo)}">${f(lo)}</b> and <b class="${cls(hi)}">${f(hi)}</b> per trade.</p>`;
   }
-  const pr=Math.min(100,n);
-  h+=`<p class="note" style="margin:12px 0 6px">${n} of 100 finished trades (the point where the answer gets trustworthy)</p><div class="bar"><i style="width:${pr}%"></i></div></div>`;
+  const pr=Math.min(100,n/3);
+  h+=`<p class="note" style="margin:12px 0 6px">${n} finished trades. 100 is only a first look; the answer gets reliable around 300 or more (about 3 years)</p><div class="bar"><i style="width:${pr}%"></i></div></div>`;
   if(n>=1){const x=cl.map(s=>s.excess),r=cl.map(s=>s.ret),sp=cl.map(s=>s.spy_ret);
     h+=`<div class="card"><h2>Finished trades vs backtest</h2><div class="kv">
     <span>Avg return per trade</span><b class="${cls(mean(r))}">${f(mean(r))}</b>

@@ -196,6 +196,7 @@ def paper_account():
                         auto_adjust=False, actions=True, progress=False)
         if isinstance(d.columns, pd.MultiIndex): d.columns = [c[0] for c in d.columns]
         d = d.dropna(subset=['Close'])
+        if d.empty: raise RuntimeError(f'no price data returned for {t}')
         for c in ('Dividends', 'Stock Splits'):
             if c not in d: d[c] = 0.0
         return d
@@ -291,9 +292,13 @@ def paper_account():
                 in_stocks=last['in_stocks'], max_drop=round(mdd * 100, 2), slots_used=len(pos), slots=SLOTS,
                 holdings=holdings, trades=trades, log=log, history=hist_rows)
 try:
-    state['paper'] = paper_account()
+    _new_paper = paper_account()
+    if _new_paper.get('start') is None and (state.get('paper') or {}).get('start'):
+        errors.append('paper account: no trading days found this check (price data problem); kept the previous account')
+    else:
+        state['paper'] = _new_paper
 except Exception as ex:
-    errors.append(f'paper account: {ex}')
+    errors.append(f'paper account: {ex}; kept the previous account')
 
 state['runs'] = (state.get('runs', []) + [dict(at=now_et.strftime('%Y-%m-%d %H:%M ET'), for_day=today.strftime('%Y-%m-%d'),
                  new=new_count, provisional=len(state.get('pending_filings', [])),

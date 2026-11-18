@@ -30,10 +30,10 @@
    "entry_date": "2026-11-18",
    "open_price": 8.56,
    "days_held": 0,
-   "ret": -3.21,
-   "spy_ret": -0.35,
-   "excess": -2.86,
-   "net_excess": -3.96
+   "ret": -3.97,
+   "spy_ret": -0.43,
+   "excess": -3.54,
+   "net_excess": -4.64
   },
   {
    "ticker": "MP",
@@ -54,10 +54,10 @@
    "entry_date": "2026-11-18",
    "open_price": 34.77,
    "days_held": 0,
-   "ret": 4.31,
-   "spy_ret": -0.35,
-   "excess": 4.66,
-   "net_excess": 3.96
+   "ret": 3.39,
+   "spy_ret": -0.43,
+   "excess": 3.83,
+   "net_excess": 3.13
   },
   {
    "ticker": "ATEC",
@@ -78,10 +78,10 @@
    "entry_date": "2026-11-18",
    "open_price": 6.96,
    "days_held": 0,
-   "ret": 3.81,
-   "spy_ret": -0.35,
-   "excess": 4.16,
-   "net_excess": 3.46
+   "ret": 1.44,
+   "spy_ret": -0.43,
+   "excess": 1.87,
+   "net_excess": 1.17
   },
   {
    "ticker": "REI",
@@ -113,10 +113,10 @@
    "entry_date": "2026-11-17",
    "open_price": 36.75,
    "days_held": 0,
-   "ret": 4.31,
-   "spy_ret": -1.03,
-   "excess": 5.34,
-   "net_excess": 4.64
+   "ret": 3.39,
+   "spy_ret": -1.11,
+   "excess": 4.5,
+   "net_excess": 3.8
   },
   {
    "ticker": "BW",
@@ -156,10 +156,10 @@
    "entry_date": "2026-11-17",
    "open_price": 9.95,
    "days_held": 1,
-   "ret": -7.79,
-   "spy_ret": -1.03,
-   "excess": -6.76,
-   "net_excess": -7.86
+   "ret": -9.55,
+   "spy_ret": -1.11,
+   "excess": -8.44,
+   "net_excess": -9.54
   }
  ],
  "runs": [
@@ -257,23 +257,30 @@
    "new": 0,
    "provisional": 0,
    "errors": []
+  },
+  {
+   "at": "2026-11-18 17:38 ET",
+   "for_day": "2026-11-18",
+   "new": 0,
+   "provisional": 1,
+   "errors": []
   }
  ],
- "updated": "2026-11-18 13:16 ET",
+ "updated": "2026-11-18 17:38 ET",
  "paper": {
   "start": "2026-11-17",
   "start_value": 100000.0,
   "as_of": "2026-11-18",
-  "intraday": true,
-  "value": 98213.55,
-  "ret": -1.79,
-  "sp_value": 98973.44,
-  "sp_ret": -1.03,
+  "intraday": false,
+  "value": 97596.44,
+  "ret": -2.4,
+  "sp_value": 98890.83,
+  "sp_ret": -1.11,
   "cash": 411.41,
   "spy_shares": 81,
-  "spy_value": 59195.61,
-  "in_stocks": 39.3,
-  "max_drop": -1.79,
+  "spy_value": 59146.2,
+  "in_stocks": 39.0,
+  "max_drop": -2.4,
   "slots_used": 4,
   "slots": 10,
   "holdings": [
@@ -282,9 +289,9 @@
     "shares": 999,
     "bought": "2026-11-17",
     "buy_px": 10.0047,
-    "last_px": 9.175,
-    "value": 9165.83,
-    "ret": -8.29,
+    "last_px": 9.0,
+    "value": 8991.0,
+    "ret": -10.04,
     "days_held": 1,
     "sell_on": "about 2027-02-16"
    },
@@ -293,9 +300,9 @@
     "shares": 271,
     "bought": "2026-11-17",
     "buy_px": 36.8786,
-    "last_px": 36.27,
-    "value": 9829.17,
-    "ret": -1.65,
+    "last_px": 35.95,
+    "value": 9742.45,
+    "ret": -2.52,
     "days_held": 1,
     "sell_on": "about 2027-02-16"
    },
@@ -304,9 +311,9 @@
     "shares": 1141,
     "bought": "2026-11-18",
     "buy_px": 8.6071,
-    "last_px": 8.285,
-    "value": 9453.18,
-    "ret": -3.74,
+    "last_px": 8.22,
+    "value": 9379.02,
+    "ret": -4.5,
     "days_held": 0,
     "sell_on": "about 2027-02-17"
    },
@@ -315,9 +322,9 @@
     "shares": 1406,
     "bought": "2026-11-18",
     "buy_px": 6.9844,
-    "last_px": 7.225,
-    "value": 10158.35,
-    "ret": 3.45,
+    "last_px": 7.06,
+    "value": 9926.36,
+    "ret": 1.08,
     "days_held": 0,
     "sell_on": "about 2027-02-17"
    }
@@ -434,11 +441,23 @@
    },
    {
     "date": "2026-11-18",
-    "value": 98213.55,
-    "sp": 98973.44,
-    "in_stocks": 39.3
+    "value": 97596.44,
+    "sp": 98890.83,
+    "in_stocks": 39.0
    }
   ]
  },
- "pending_filings": []
+ "pending_filings": [
+  {
+   "ticker": "LWLG",
+   "company": "Lightwave Logic, Inc.",
+   "filing_day": "2026-11-18",
+   "filing_time": "2026-11-18 16:01",
+   "insiders": "Graffam Fred",
+   "value": 28700,
+   "insider_price": 2.87,
+   "status": "provisional",
+   "note": "Reported today; pending nightly review"
+  }
+ ]
 }

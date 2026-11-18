@@ -30,10 +30,10 @@
    "entry_date": "2026-11-17",
    "open_price": 36.75,
    "days_held": 0,
-   "ret": -4.98,
-   "spy_ret": -1.0,
-   "excess": -3.98,
-   "net_excess": -4.68
+   "ret": -5.14,
+   "spy_ret": -0.81,
+   "excess": -4.34,
+   "net_excess": -5.04
   },
   {
    "ticker": "BW",
@@ -73,10 +73,10 @@
    "entry_date": "2026-11-17",
    "open_price": 9.95,
    "days_held": 0,
-   "ret": -4.77,
-   "spy_ret": -1.0,
-   "excess": -3.77,
-   "net_excess": -4.87
+   "ret": -4.82,
+   "spy_ret": -0.81,
+   "excess": -4.02,
+   "net_excess": -5.12
   }
  ],
  "runs": [
@@ -111,23 +111,30 @@
    "new": 0,
    "provisional": 0,
    "errors": []
+  },
+  {
+   "at": "2026-11-17 19:41 ET",
+   "for_day": "2026-11-17",
+   "new": 0,
+   "provisional": 3,
+   "errors": []
   }
  ],
- "updated": "2026-11-17 15:58 ET",
+ "updated": "2026-11-17 19:41 ET",
  "paper": {
   "start": "2026-11-17",
   "start_value": 100000.0,
   "as_of": "2026-11-17",
-  "intraday": true,
-  "value": 98121.29,
-  "ret": -1.88,
-  "sp_value": 98997.82,
-  "sp_ret": -1.0,
+  "intraday": false,
+  "value": 98264.2,
+  "ret": -1.74,
+  "sp_value": 99194.19,
+  "sp_ret": -0.81,
   "cash": 253.09,
   "spy_shares": 108,
-  "spy_value": 78939.36,
-  "in_stocks": 19.3,
-  "max_drop": -1.88,
+  "spy_value": 79103.52,
+  "in_stocks": 19.2,
+  "max_drop": -1.74,
   "slots_used": 2,
   "slots": 10,
   "holdings": [
@@ -136,9 +143,9 @@
     "shares": 999,
     "bought": "2026-11-17",
     "buy_px": 10.0047,
-    "last_px": 9.475,
-    "value": 9465.53,
-    "ret": -5.29,
+    "last_px": 9.47,
+    "value": 9460.53,
+    "ret": -5.34,
     "days_held": 0,
     "sell_on": "about 2027-02-16"
    },
@@ -147,9 +154,9 @@
     "shares": 271,
     "bought": "2026-11-17",
     "buy_px": 36.8786,
-    "last_px": 34.92,
-    "value": 9463.32,
-    "ret": -5.31,
+    "last_px": 34.86,
+    "value": 9447.06,
+    "ret": -5.47,
     "days_held": 0,
     "sell_on": "about 2027-02-16"
    }
@@ -210,11 +217,45 @@
   "history": [
    {
     "date": "2026-11-17",
-    "value": 98121.29,
-    "sp": 98997.82,
-    "in_stocks": 19.3
+    "value": 98264.2,
+    "sp": 99194.19,
+    "in_stocks": 19.2
    }
   ]
  },
- "pending_filings": []
+ "pending_filings": [
+  {
+   "ticker": "ATEC",
+   "company": "Alphatec Holdings, Inc.",
+   "filing_day": "2026-11-17",
+   "filing_time": "2026-11-17 17:33",
+   "insiders": "Koning John Todd",
+   "value": 99146,
+   "insider_price": 6.79,
+   "status": "provisional",
+   "note": "Reported today; pending nightly review"
+  },
+  {
+   "ticker": "NPCE",
+   "company": "Neuropace Inc",
+   "filing_day": "2026-11-17",
+   "filing_time": "2026-11-17 17:08",
+   "insiders": "Becker Joel, Williams Patrick F.",
+   "value": 198441,
+   "insider_price": 8.345,
+   "status": "provisional",
+   "note": "Reported today; pending nightly review"
+  },
+  {
+   "ticker": "NSPR",
+   "company": "Inspiremd, Inc.",
+   "filing_day": "2026-11-17",
+   "filing_time": "2026-11-17 16:05",
+   "insiders": "Berman Michael, Lawless Michael A, Roubin Gary S, Slosman Marvin, Stuka Paul",
+   "value": 455000,
+   "insider_price": 0.65,
+   "status": "provisional",
+   "note": "Reported today; pending nightly review"
+  }
+ ]
 }

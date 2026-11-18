@@ -19,14 +19,21 @@
    "insiders": "Becker Joel, Williams Patrick F.",
    "value": 198441,
    "insider_price": 8.345,
-   "status": "waiting",
+   "status": "open",
    "note": "",
    "vol60": 1.05,
    "adv20": 4668365,
    "mcap": 287498352,
    "buy_pct_of_company": 0.069,
    "score": 91,
-   "limit": 8.5954
+   "limit": 8.5954,
+   "entry_date": "2026-11-18",
+   "open_price": 8.56,
+   "days_held": 0,
+   "ret": -3.74,
+   "spy_ret": -0.32,
+   "excess": -3.42,
+   "net_excess": -4.52
   },
   {
    "ticker": "MP",
@@ -36,14 +43,21 @@
    "insiders": "Corbett Ryan",
    "value": 91577,
    "insider_price": 34.86,
-   "status": "waiting",
+   "status": "open",
    "note": "",
    "vol60": 0.546,
    "adv20": 235877422,
    "mcap": 6214421643,
    "buy_pct_of_company": 0.0015,
    "score": 42,
-   "limit": 35.9058
+   "limit": 35.9058,
+   "entry_date": "2026-11-18",
+   "open_price": 34.77,
+   "days_held": 0,
+   "ret": 5.06,
+   "spy_ret": -0.32,
+   "excess": 5.38,
+   "net_excess": 4.68
   },
   {
    "ticker": "ATEC",
@@ -53,14 +67,21 @@
    "insiders": "Koning John Todd",
    "value": 99146,
    "insider_price": 6.79,
-   "status": "waiting",
+   "status": "open",
    "note": "",
    "vol60": 1.161,
    "adv20": 48531987,
    "mcap": 1041123085,
    "buy_pct_of_company": 0.0095,
    "score": 71,
-   "limit": 6.9937
+   "limit": 6.9937,
+   "entry_date": "2026-11-18",
+   "open_price": 6.96,
+   "days_held": 0,
+   "ret": 4.17,
+   "spy_ret": -0.32,
+   "excess": 4.48,
+   "net_excess": 3.78
   },
   {
    "ticker": "REI",
@@ -91,11 +112,11 @@
    "limit": 37.8525,
    "entry_date": "2026-11-17",
    "open_price": 36.75,
-   "days_held": 0,
-   "ret": -5.14,
-   "spy_ret": -0.81,
-   "excess": -4.34,
-   "net_excess": -5.04
+   "days_held": 1,
+   "ret": -0.6,
+   "spy_ret": -1.0,
+   "excess": 0.4,
+   "net_excess": -0.3
   },
   {
    "ticker": "BW",
@@ -134,11 +155,11 @@
    "limit": 10.1558,
    "entry_date": "2026-11-17",
    "open_price": 9.95,
-   "days_held": 0,
-   "ret": -4.82,
-   "spy_ret": -0.81,
-   "excess": -4.02,
-   "net_excess": -5.12
+   "days_held": 1,
+   "ret": -7.99,
+   "spy_ret": -1.0,
+   "excess": -6.99,
+   "net_excess": -8.09
   }
  ],
  "runs": [
@@ -208,24 +229,31 @@
    "new": 0,
    "provisional": 0,
    "errors": []
+  },
+  {
+   "at": "2026-11-18 13:00 ET",
+   "for_day": "2026-11-18",
+   "new": 0,
+   "provisional": 0,
+   "errors": []
   }
  ],
- "updated": "2026-11-18 07:15 ET",
+ "updated": "2026-11-18 13:00 ET",
  "paper": {
   "start": "2026-11-17",
   "start_value": 100000.0,
-  "as_of": "2026-11-17",
-  "intraday": false,
-  "value": 98264.2,
-  "ret": -1.74,
-  "sp_value": 99194.19,
-  "sp_ret": -0.81,
-  "cash": 253.09,
-  "spy_shares": 108,
-  "spy_value": 79103.52,
-  "in_stocks": 19.2,
+  "as_of": "2026-11-18",
+  "intraday": true,
+  "value": 98756.16,
+  "ret": -1.24,
+  "sp_value": 99004.59,
+  "sp_ret": -1.0,
+  "cash": 139.7,
+  "spy_shares": 68,
+  "spy_value": 49710.72,
+  "in_stocks": 49.5,
   "max_drop": -1.74,
-  "slots_used": 2,
+  "slots_used": 5,
   "slots": 10,
   "holdings": [
    {
@@ -233,10 +261,10 @@
     "shares": 999,
     "bought": "2026-11-17",
     "buy_px": 10.0047,
-    "last_px": 9.47,
-    "value": 9460.53,
-    "ret": -5.34,
-    "days_held": 0,
+    "last_px": 9.155,
+    "value": 9145.84,
+    "ret": -8.49,
+    "days_held": 1,
     "sell_on": "about 2027-02-16"
    },
    {
@@ -244,11 +272,44 @@
     "shares": 271,
     "bought": "2026-11-17",
     "buy_px": 36.8786,
-    "last_px": 34.86,
-    "value": 9447.06,
-    "ret": -5.47,
-    "days_held": 0,
+    "last_px": 36.53,
+    "value": 9899.63,
+    "ret": -0.95,
+    "days_held": 1,
     "sell_on": "about 2027-02-16"
+   },
+   {
+    "ticker": "NPCE",
+    "shares": 1141,
+    "bought": "2026-11-18",
+    "buy_px": 8.6071,
+    "last_px": 8.24,
+    "value": 9401.84,
+    "ret": -4.26,
+    "days_held": 0,
+    "sell_on": "about 2027-02-17"
+   },
+   {
+    "ticker": "ATEC",
+    "shares": 1406,
+    "bought": "2026-11-18",
+    "buy_px": 6.9844,
+    "last_px": 7.25,
+    "value": 10193.5,
+    "ret": 3.8,
+    "days_held": 0,
+    "sell_on": "about 2027-02-17"
+   },
+   {
+    "ticker": "MP",
+    "shares": 281,
+    "bought": "2026-11-18",
+    "buy_px": 34.8917,
+    "last_px": 36.53,
+    "value": 10264.93,
+    "ret": 4.7,
+    "days_held": 0,
+    "sell_on": "about 2027-02-17"
    }
   ],
   "trades": [],
@@ -302,6 +363,66 @@
     "amount": -9994.11,
     "cash": 253.09,
     "note": "score 43, 10.0% of account"
+   },
+   {
+    "date": "2026-11-18",
+    "action": "SPY SELL",
+    "ticker": "SPY",
+    "shares": 14,
+    "price": 733.37,
+    "amount": 10266.15,
+    "cash": 10519.24,
+    "note": "to pay for NPCE"
+   },
+   {
+    "date": "2026-11-18",
+    "action": "BUY",
+    "ticker": "NPCE",
+    "shares": 1141,
+    "price": 8.6071,
+    "amount": -9820.68,
+    "cash": 698.56,
+    "note": "score 91, 10.0% of account"
+   },
+   {
+    "date": "2026-11-18",
+    "action": "SPY SELL",
+    "ticker": "SPY",
+    "shares": 13,
+    "price": 733.37,
+    "amount": 9532.86,
+    "cash": 10231.42,
+    "note": "to pay for ATEC"
+   },
+   {
+    "date": "2026-11-18",
+    "action": "BUY",
+    "ticker": "ATEC",
+    "shares": 1406,
+    "price": 6.9844,
+    "amount": -9820.01,
+    "cash": 411.41,
+    "note": "score 71, 10.0% of account"
+   },
+   {
+    "date": "2026-11-18",
+    "action": "SPY SELL",
+    "ticker": "SPY",
+    "shares": 13,
+    "price": 733.37,
+    "amount": 9532.86,
+    "cash": 9944.27,
+    "note": "to pay for MP"
+   },
+   {
+    "date": "2026-11-18",
+    "action": "BUY",
+    "ticker": "MP",
+    "shares": 281,
+    "price": 34.8917,
+    "amount": -9804.57,
+    "cash": 139.7,
+    "note": "score 42, 10.0% of account"
    }
   ],
   "history": [
@@ -310,6 +431,12 @@
     "value": 98264.2,
     "sp": 99194.19,
     "in_stocks": 19.2
+   },
+   {
+    "date": "2026-11-18",
+    "value": 98756.16,
+    "sp": 99004.59,
+    "in_stocks": 49.5
    }
   ]
  },

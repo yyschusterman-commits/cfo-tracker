@@ -1,6 +1,68 @@
 {
  "signals": [
   {
+   "ticker": "NSPR",
+   "company": "Inspiremd, Inc.",
+   "filing_day": "2026-11-17",
+   "filing_time": "2026-11-17 16:05",
+   "insiders": "Berman Michael, Lawless Michael A, Roubin Gary S, Slosman Marvin, Stuka Paul",
+   "value": 455000,
+   "insider_price": 0.65,
+   "status": "skipped",
+   "note": "price under $2"
+  },
+  {
+   "ticker": "NPCE",
+   "company": "Neuropace Inc",
+   "filing_day": "2026-11-17",
+   "filing_time": "2026-11-17 17:08",
+   "insiders": "Becker Joel, Williams Patrick F.",
+   "value": 198441,
+   "insider_price": 8.345,
+   "status": "waiting",
+   "note": "",
+   "vol60": 1.05,
+   "adv20": 4668365,
+   "mcap": 287498352,
+   "buy_pct_of_company": 0.069,
+   "score": 91,
+   "limit": 8.5954
+  },
+  {
+   "ticker": "MP",
+   "company": "Mp Materials Corp. / De",
+   "filing_day": "2026-11-17",
+   "filing_time": "2026-11-17 20:08",
+   "insiders": "Corbett Ryan",
+   "value": 91577,
+   "insider_price": 34.86,
+   "status": "waiting",
+   "note": "",
+   "vol60": 0.546,
+   "adv20": 235877422,
+   "mcap": 6214421643,
+   "buy_pct_of_company": 0.0015,
+   "score": 42,
+   "limit": 35.9058
+  },
+  {
+   "ticker": "ATEC",
+   "company": "Alphatec Holdings, Inc.",
+   "filing_day": "2026-11-17",
+   "filing_time": "2026-11-17 17:33",
+   "insiders": "Koning John Todd",
+   "value": 99146,
+   "insider_price": 6.79,
+   "status": "waiting",
+   "note": "",
+   "vol60": 1.161,
+   "adv20": 48531987,
+   "mcap": 1041123085,
+   "buy_pct_of_company": 0.0095,
+   "score": 71,
+   "limit": 6.9937
+  },
+  {
    "ticker": "REI",
    "company": "Ring Energy, Inc.",
    "filing_day": "2026-11-16",
@@ -132,57 +194,117 @@
    "new": 0,
    "provisional": 4,
    "errors": []
+  },
+  {
+   "at": "2026-11-17 22:33 ET",
+   "for_day": "2026-11-17",
+   "new": 4,
+   "provisional": 0,
+   "errors": []
   }
  ],
- "updated": "2026-11-17 20:14 ET",
+ "updated": "2026-11-17 22:33 ET",
  "paper": {
-  "start": null,
-  "note": "starts at the next market open"
+  "start": "2026-11-17",
+  "start_value": 100000.0,
+  "as_of": "2026-11-17",
+  "intraday": false,
+  "value": 98264.2,
+  "ret": -1.74,
+  "sp_value": 99194.19,
+  "sp_ret": -0.81,
+  "cash": 253.09,
+  "spy_shares": 108,
+  "spy_value": 79103.52,
+  "in_stocks": 19.2,
+  "max_drop": -1.74,
+  "slots_used": 2,
+  "slots": 10,
+  "holdings": [
+   {
+    "ticker": "ADIG",
+    "shares": 999,
+    "bought": "2026-11-17",
+    "buy_px": 10.0047,
+    "last_px": 9.47,
+    "value": 9460.53,
+    "ret": -5.34,
+    "days_held": 0,
+    "sell_on": "about 2027-02-16"
+   },
+   {
+    "ticker": "MP",
+    "shares": 271,
+    "bought": "2026-11-17",
+    "buy_px": 36.8786,
+    "last_px": 34.86,
+    "value": 9447.06,
+    "ret": -5.47,
+    "days_held": 0,
+    "sell_on": "about 2027-02-16"
+   }
+  ],
+  "trades": [],
+  "log": [
+   {
+    "date": "2026-11-17",
+    "action": "SPY BUY",
+    "ticker": "SPY",
+    "shares": 135,
+    "price": 738.39,
+    "amount": -99692.62,
+    "cash": 307.38,
+    "note": "start: $100,000 into the S&P"
+   },
+   {
+    "date": "2026-11-17",
+    "action": "SPY SELL",
+    "ticker": "SPY",
+    "shares": 14,
+    "price": 738.39,
+    "amount": 10336.43,
+    "cash": 10643.81,
+    "note": "to pay for ADIG"
+   },
+   {
+    "date": "2026-11-17",
+    "action": "BUY",
+    "ticker": "ADIG",
+    "shares": 999,
+    "price": 10.0047,
+    "amount": -9994.72,
+    "cash": 649.09,
+    "note": "score 87, 10.0% of account"
+   },
+   {
+    "date": "2026-11-17",
+    "action": "SPY SELL",
+    "ticker": "SPY",
+    "shares": 13,
+    "price": 738.39,
+    "amount": 9598.11,
+    "cash": 10247.2,
+    "note": "to pay for MP"
+   },
+   {
+    "date": "2026-11-17",
+    "action": "BUY",
+    "ticker": "MP",
+    "shares": 271,
+    "price": 36.8786,
+    "amount": -9994.11,
+    "cash": 253.09,
+    "note": "score 43, 10.0% of account"
+   }
+  ],
+  "history": [
+   {
+    "date": "2026-11-17",
+    "value": 98264.2,
+    "sp": 99194.19,
+    "in_stocks": 19.2
+   }
+  ]
  },
- "pending_filings": [
-  {
-   "ticker": "ATEC",
-   "company": "Alphatec Holdings, Inc.",
-   "filing_day": "2026-11-17",
-   "filing_time": "2026-11-17 17:33",
-   "insiders": "Koning John Todd",
-   "value": 99146,
-   "insider_price": 6.79,
-   "status": "provisional",
-   "note": "Reported today; pending nightly review"
-  },
-  {
-   "ticker": "MP",
-   "company": "Mp Materials Corp. / De",
-   "filing_day": "2026-11-17",
-   "filing_time": "2026-11-17 20:08",
-   "insiders": "Corbett Ryan",
-   "value": 91577,
-   "insider_price": 34.86,
-   "status": "provisional",
-   "note": "Reported today; pending nightly review"
-  },
-  {
-   "ticker": "NPCE",
-   "company": "Neuropace Inc",
-   "filing_day": "2026-11-17",
-   "filing_time": "2026-11-17 17:08",
-   "insiders": "Becker Joel, Williams Patrick F.",
-   "value": 198441,
-   "insider_price": 8.345,
-   "status": "provisional",
-   "note": "Reported today; pending nightly review"
-  },
-  {
-   "ticker": "NSPR",
-   "company": "Inspiremd, Inc.",
-   "filing_day": "2026-11-17",
-   "filing_time": "2026-11-17 16:05",
-   "insiders": "Berman Michael, Lawless Michael A, Roubin Gary S, Slosman Marvin, Stuka Paul",
-   "value": 455000,
-   "insider_price": 0.65,
-   "status": "provisional",
-   "note": "Reported today; pending nightly review"
-  }
- ]
+ "pending_filings": []
 }

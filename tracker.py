@@ -184,7 +184,8 @@ for s in state['signals']:
 # ---------- 5. paper account ($100k, same rules as the backtest) ----------
 # Rebuilt on each check from the signals above + Yahoo prices, so repeated checks do not duplicate buys.
 #  - spare cash sits in SPY (whole shares, 0.01% cost each way)
-#  - each filled signal: buy at its entry-day open, 10% of the account (value at the previous close),
+#  - each filled signal: buy at its entry-day open, 10% of the account (value at the previous close);
+#    skipped if the account already holds that stock (the signal is still tracked on its own in the Scorecard),
 #    paid for by selling SPY; max 10 stocks at once; if all 10 are full the signal is skipped
 #  - several signals on one day with too few free slots: highest score first
 #  - sell at the close 63 trading days later (same day the tracker closes it); cash goes back into SPY
@@ -226,6 +227,8 @@ def paper_account():
             add(d, 'SPY BUY', 'SPY', n, so, -n * so * (1 + SPYC), 'start: $100,000 into the S&P')
         for s in [s for s in sigs if s['entry_date'] == d.strftime('%Y-%m-%d')]:
             key = (s['ticker'], s['filing_day'])
+            if any(q['ticker'] == s['ticker'] for q in pos):
+                add(d, 'SKIP', s['ticker'], note=f"already holding {s['ticker']}"); continue
             if len(pos) >= SLOTS:
                 add(d, 'SKIP', s['ticker'], note='all 10 slots full'); continue
             h = px[s['ticker']]

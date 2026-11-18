@@ -145,7 +145,7 @@ function paper(){
   h+=`<div class="card scroll"><h2>Every action <span class="muted" style="font-weight:400">${L.length}</span></h2><table><tr><th>Date</th><th>Action</th><th>Ticker</th><th>Shares</th><th>Price</th><th>Amount</th><th>Cash after</th><th>Note</th></tr>${
     Ls.map(l=>`<tr><td>${l.date}</td><td>${l.action}</td><td>${l.ticker}</td><td>${l.shares||''}</td><td>${l.price==null?'':px(l.price)}</td><td>${l.amount?(l.amount<0?'-':'+')+money(Math.abs(l.amount)):''}</td><td>${money(l.cash)}</td><td class="wrap">${l.note||''}</td></tr>`).join('')}</table>`+
     (L.length>40&&!showAll?`<p style="margin:10px 0 0"><button class="tab" style="flex:none;border:1px solid var(--line)" onclick="showAll=true;render('paper')">Show all ${L.length}</button></p>`:'')+`</div>`;
-  h+=`<p class="note">Rules: 10% of the account per signal, max 10 stocks, sell after 63 trading days. Spare cash sits in SPY and gets sold to pay for new buys. If all 10 slots are full, the signal is skipped (it still counts in the Scorecard). Same trading costs as the backtest. Prices from Yahoo.</p>`;
+  h+=`<p class="note">Rules: 10% of the account per signal, max 10 stocks, sell after 63 trading days. Spare cash sits in SPY and gets sold to pay for new buys. If all 10 slots are full, or the account already holds that stock, the signal is skipped (it still counts in the Scorecard). Same trading costs as the backtest. Prices from Yahoo.</p>`;
   return h;
 }
 function render(t){

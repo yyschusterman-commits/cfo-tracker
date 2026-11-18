@@ -31,9 +31,9 @@
    "open_price": 8.56,
    "days_held": 0,
    "ret": -3.21,
-   "spy_ret": -0.4,
-   "excess": -2.81,
-   "net_excess": -3.91
+   "spy_ret": -0.35,
+   "excess": -2.86,
+   "net_excess": -3.96
   },
   {
    "ticker": "MP",
@@ -54,10 +54,10 @@
    "entry_date": "2026-11-18",
    "open_price": 34.77,
    "days_held": 0,
-   "ret": 4.49,
-   "spy_ret": -0.4,
-   "excess": 4.88,
-   "net_excess": 4.18
+   "ret": 4.31,
+   "spy_ret": -0.35,
+   "excess": 4.66,
+   "net_excess": 3.96
   },
   {
    "ticker": "ATEC",
@@ -79,9 +79,9 @@
    "open_price": 6.96,
    "days_held": 0,
    "ret": 3.81,
-   "spy_ret": -0.4,
-   "excess": 4.21,
-   "net_excess": 3.51
+   "spy_ret": -0.35,
+   "excess": 4.16,
+   "net_excess": 3.46
   },
   {
    "ticker": "REI",
@@ -113,10 +113,10 @@
    "entry_date": "2026-11-17",
    "open_price": 36.75,
    "days_held": 0,
-   "ret": 4.49,
-   "spy_ret": -1.08,
-   "excess": 5.56,
-   "net_excess": 4.86
+   "ret": 4.31,
+   "spy_ret": -1.03,
+   "excess": 5.34,
+   "net_excess": 4.64
   },
   {
    "ticker": "BW",
@@ -156,10 +156,10 @@
    "entry_date": "2026-11-17",
    "open_price": 9.95,
    "days_held": 1,
-   "ret": -7.64,
-   "spy_ret": -1.08,
-   "excess": -6.56,
-   "net_excess": -7.66
+   "ret": -7.79,
+   "spy_ret": -1.03,
+   "excess": -6.76,
+   "net_excess": -7.86
   }
  ],
  "runs": [
@@ -250,23 +250,30 @@
    "new": 0,
    "provisional": 0,
    "errors": []
+  },
+  {
+   "at": "2026-11-18 13:16 ET",
+   "for_day": "2026-11-18",
+   "new": 0,
+   "provisional": 0,
+   "errors": []
   }
  ],
- "updated": "2026-11-18 13:15 ET",
+ "updated": "2026-11-18 13:16 ET",
  "paper": {
   "start": "2026-11-17",
   "start_value": 100000.0,
   "as_of": "2026-11-18",
   "intraday": true,
-  "value": 98219.28,
-  "ret": -1.78,
-  "sp_value": 98924.69,
-  "sp_ret": -1.08,
+  "value": 98213.55,
+  "ret": -1.79,
+  "sp_value": 98973.44,
+  "sp_ret": -1.03,
   "cash": 411.41,
   "spy_shares": 81,
-  "spy_value": 59170.19,
+  "spy_value": 59195.61,
   "in_stocks": 39.3,
-  "max_drop": -1.78,
+  "max_drop": -1.79,
   "slots_used": 4,
   "slots": 10,
   "holdings": [
@@ -275,9 +282,9 @@
     "shares": 999,
     "bought": "2026-11-17",
     "buy_px": 10.0047,
-    "last_px": 9.1899,
-    "value": 9180.71,
-    "ret": -8.14,
+    "last_px": 9.175,
+    "value": 9165.83,
+    "ret": -8.29,
     "days_held": 1,
     "sell_on": "about 2027-02-16"
    },
@@ -286,9 +293,9 @@
     "shares": 271,
     "bought": "2026-11-17",
     "buy_px": 36.8786,
-    "last_px": 36.33,
-    "value": 9845.43,
-    "ret": -1.49,
+    "last_px": 36.27,
+    "value": 9829.17,
+    "ret": -1.65,
     "days_held": 1,
     "sell_on": "about 2027-02-16"
    },
@@ -427,8 +434,8 @@
    },
    {
     "date": "2026-11-18",
-    "value": 98219.28,
-    "sp": 98924.69,
+    "value": 98213.55,
+    "sp": 98973.44,
     "in_stocks": 39.3
    }
   ]

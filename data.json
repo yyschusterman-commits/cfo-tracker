@@ -125,9 +125,16 @@
    "new": 0,
    "provisional": 3,
    "errors": []
+  },
+  {
+   "at": "2026-11-17 20:14 ET",
+   "for_day": "2026-11-17",
+   "new": 0,
+   "provisional": 4,
+   "errors": []
   }
  ],
- "updated": "2026-11-17 20:02 ET",
+ "updated": "2026-11-17 20:14 ET",
  "paper": {
   "start": null,
   "note": "starts at the next market open"
@@ -141,6 +148,17 @@
    "insiders": "Koning John Todd",
    "value": 99146,
    "insider_price": 6.79,
+   "status": "provisional",
+   "note": "Reported today; pending nightly review"
+  },
+  {
+   "ticker": "MP",
+   "company": "Mp Materials Corp. / De",
+   "filing_day": "2026-11-17",
+   "filing_time": "2026-11-17 20:08",
+   "insiders": "Corbett Ryan",
+   "value": 91577,
+   "insider_price": 34.86,
    "status": "provisional",
    "note": "Reported today; pending nightly review"
   },

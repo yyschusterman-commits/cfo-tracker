@@ -1,12 +1,30 @@
 name: Nightly CFO tracker
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/nightly.yml'
+      - 'tracker.py'
+      - 'index.html'
+      - 'config.json'
   schedule:
-    # One hour after the regular US market open, including across daylight saving changes.
+    # Primary check: one hour after the regular US market open.
     - cron: '30 10 * * 1-5'
       timezone: America/New_York
-    # Finalize the day's filing groups after the existing 10:05pm ET cutoff.
+    # Backup checks if an earlier scheduled trigger is delayed or dropped.
+    - cron: '17 11,13 * * 1-5'
+      timezone: America/New_York
+    # Refresh the account after the regular session closes.
+    - cron: '20 16 * * 1-5'
+      timezone: America/New_York
+    # Finalize filings after the tracker\'s 10:05pm Eastern cutoff.
     - cron: '41 22 * * 1-5'
+      timezone: America/New_York
+    - cron: '17 23 * * 1-5'
+      timezone: America/New_York
+    # Final backup for the previous trading day's filings.
+    - cron: '17 0 * * 2-6'
       timezone: America/New_York
   workflow_dispatch: {}
 
@@ -55,6 +73,13 @@ jobs:
           assert old <= new, 'existing signals were removed'
           assert len(new) == len(after['signals']), 'duplicate signals'
           assert after.get('updated'), 'no timestamp'
+          previous_paper = before.get('paper') or {}
+          current_paper = after.get('paper') or {}
+          if previous_paper.get('start'):
+              assert current_paper.get('start') == previous_paper['start'], 'paper account reset; refusing to save'
+              assert current_paper.get('as_of', '') >= previous_paper.get('as_of', ''), 'paper account moved backwards'
+              old_days = {h['date'] for h in previous_paper.get('history', [])}
+              assert old_days <= {h['date'] for h in current_paper.get('history', [])}, 'paper history removed'
           counts = collections.Counter(s['status'] for s in after['signals'])
           last = after['runs'][-1]
           with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as out:

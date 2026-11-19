@@ -1,6 +1,23 @@
 {
  "signals": [
   {
+   "ticker": "LWLG",
+   "company": "Lightwave Logic, Inc.",
+   "filing_day": "2026-11-18",
+   "filing_time": "2026-11-18 16:01",
+   "insiders": "Graffam Fred",
+   "value": 28700,
+   "insider_price": 2.87,
+   "status": "waiting",
+   "note": "",
+   "vol60": 0.967,
+   "adv20": 16506491,
+   "mcap": 443537377,
+   "buy_pct_of_company": 0.0065,
+   "score": 65,
+   "limit": 2.9561
+  },
+  {
    "ticker": "NSPR",
    "company": "Inspiremd, Inc.",
    "filing_day": "2026-11-17",
@@ -278,9 +295,16 @@
    "new": 0,
    "provisional": 1,
    "errors": []
+  },
+  {
+   "at": "2026-11-19 07:08 ET",
+   "for_day": "2026-11-19",
+   "new": 1,
+   "provisional": 0,
+   "errors": []
   }
  ],
- "updated": "2026-11-18 21:39 ET",
+ "updated": "2026-11-19 07:08 ET",
  "paper": {
   "start": "2026-11-17",
   "start_value": 100000.0,
@@ -461,17 +485,5 @@
    }
   ]
  },
- "pending_filings": [
-  {
-   "ticker": "LWLG",
-   "company": "Lightwave Logic, Inc.",
-   "filing_day": "2026-11-18",
-   "filing_time": "2026-11-18 16:01",
-   "insiders": "Graffam Fred",
-   "value": 28700,
-   "insider_price": 2.87,
-   "status": "provisional",
-   "note": "Reported today; pending nightly review"
-  }
- ]
+ "pending_filings": []
 }

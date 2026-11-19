@@ -332,9 +332,16 @@
    "new": 0,
    "provisional": 1,
    "errors": []
+  },
+  {
+   "at": "2026-11-19 18:05 ET",
+   "for_day": "2026-11-19",
+   "new": 0,
+   "provisional": 2,
+   "errors": []
   }
  ],
- "updated": "2026-11-19 17:42 ET",
+ "updated": "2026-11-19 18:05 ET",
  "paper": {
   "start": "2026-11-17",
   "start_value": 100000.0,
@@ -522,6 +529,17 @@
   ]
  },
  "pending_filings": [
+  {
+   "ticker": "FBIO",
+   "company": "Fortress Biotech, Inc.",
+   "filing_day": "2026-11-19",
+   "filing_time": "2026-11-19 17:54",
+   "insiders": "Jin David, Rosenwald Lindsay A Md",
+   "value": 340397,
+   "insider_price": 1.845,
+   "status": "provisional",
+   "note": "Reported today; pending nightly review"
+  },
   {
    "ticker": "HMH",
    "company": "Hmh Holding Inc",

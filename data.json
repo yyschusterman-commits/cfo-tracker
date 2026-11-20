@@ -399,9 +399,16 @@
    "new": 0,
    "provisional": 0,
    "errors": []
+  },
+  {
+   "at": "2026-11-20 09:00 ET",
+   "for_day": "2026-11-20",
+   "new": 0,
+   "provisional": 1,
+   "errors": []
   }
  ],
- "updated": "2026-11-20 07:56 ET",
+ "updated": "2026-11-20 09:00 ET",
  "paper": {
   "start": "2026-11-17",
   "start_value": 100000.0,
@@ -588,5 +595,17 @@
    }
   ]
  },
- "pending_filings": []
+ "pending_filings": [
+  {
+   "ticker": "BFH",
+   "company": "Bread Financial Holdings, Inc.",
+   "filing_day": "2026-11-20",
+   "filing_time": "2026-11-20 08:21",
+   "insiders": "Beberman Perry S",
+   "value": 220400,
+   "insider_price": 22.04,
+   "status": "provisional",
+   "note": "Reported today; pending nightly review"
+  }
+ ]
 }

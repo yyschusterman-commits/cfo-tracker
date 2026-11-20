@@ -1,6 +1,45 @@
 {
  "signals": [
   {
+   "ticker": "VTIX",
+   "company": "Virtuix Holdings Inc.",
+   "filing_day": "2026-11-19",
+   "filing_time": "2026-11-19 20:07",
+   "insiders": "Goetgeluk Jan Roger, McGinnis Thomas Lynn",
+   "value": 80870,
+   "insider_price": 0.4,
+   "status": "skipped",
+   "note": "price under $2"
+  },
+  {
+   "ticker": "HMH",
+   "company": "Hmh Holding Inc",
+   "filing_day": "2026-11-19",
+   "filing_time": "2026-11-19 11:56",
+   "insiders": "Bergsvik Eirik, McGee Thomas W.",
+   "value": 1736052,
+   "insider_price": 11.39,
+   "status": "waiting",
+   "note": "",
+   "vol60": 0.783,
+   "adv20": 4163320,
+   "mcap": 138975096,
+   "buy_pct_of_company": 1.2492,
+   "score": 94,
+   "limit": 11.7317
+  },
+  {
+   "ticker": "FBIO",
+   "company": "Fortress Biotech, Inc.",
+   "filing_day": "2026-11-19",
+   "filing_time": "2026-11-19 17:54",
+   "insiders": "Jin David, Rosenwald Lindsay A Md",
+   "value": 340397,
+   "insider_price": 1.845,
+   "status": "skipped",
+   "note": "price under $2"
+  },
+  {
    "ticker": "LWLG",
    "company": "Lightwave Logic, Inc.",
    "filing_day": "2026-11-18",
@@ -48,11 +87,11 @@
    "limit": 8.5954,
    "entry_date": "2026-11-18",
    "open_price": 8.56,
-   "days_held": 0,
-   "ret": -3.97,
-   "spy_ret": -0.43,
-   "excess": -3.54,
-   "net_excess": -4.64
+   "days_held": 1,
+   "ret": -4.91,
+   "spy_ret": -2.39,
+   "excess": -2.52,
+   "net_excess": -3.62
   },
   {
    "ticker": "MP",
@@ -72,11 +111,11 @@
    "limit": 35.9058,
    "entry_date": "2026-11-18",
    "open_price": 34.77,
-   "days_held": 0,
-   "ret": 3.39,
-   "spy_ret": -0.43,
-   "excess": 3.83,
-   "net_excess": 3.13
+   "days_held": 1,
+   "ret": 5.44,
+   "spy_ret": -2.39,
+   "excess": 7.82,
+   "net_excess": 7.12
   },
   {
    "ticker": "ATEC",
@@ -131,11 +170,11 @@
    "limit": 37.8525,
    "entry_date": "2026-11-17",
    "open_price": 36.75,
-   "days_held": 0,
-   "ret": 3.39,
-   "spy_ret": -1.11,
-   "excess": 4.5,
-   "net_excess": 3.8
+   "days_held": 1,
+   "ret": 5.44,
+   "spy_ret": -3.05,
+   "excess": 8.49,
+   "net_excess": 7.79
   },
   {
    "ticker": "BW",
@@ -174,11 +213,11 @@
    "limit": 10.1558,
    "entry_date": "2026-11-17",
    "open_price": 9.95,
-   "days_held": 1,
-   "ret": -9.55,
-   "spy_ret": -1.11,
-   "excess": -8.44,
-   "net_excess": -9.54
+   "days_held": 2,
+   "ret": -10.55,
+   "spy_ret": -3.05,
+   "excess": -7.5,
+   "net_excess": -8.6
   }
  ],
  "runs": [
@@ -346,15 +385,22 @@
    "new": 0,
    "provisional": 3,
    "errors": []
+  },
+  {
+   "at": "2026-11-20 07:10 ET",
+   "for_day": "2026-11-20",
+   "new": 3,
+   "provisional": 0,
+   "errors": []
   }
  ],
- "updated": "2026-11-19 21:24 ET",
+ "updated": "2026-11-20 07:10 ET",
  "paper": {
   "start": "2026-11-17",
   "start_value": 100000.0,
   "as_of": "2026-11-19",
   "intraday": false,
-  "value": 96210.75,
+  "value": 96211.98,
   "ret": -3.79,
   "sp_value": 96950.12,
   "sp_ret": -3.05,
@@ -371,10 +417,10 @@
     "shares": 999,
     "bought": "2026-11-17",
     "buy_px": 10.0047,
-    "last_px": 9.0,
-    "value": 8991.0,
-    "ret": -10.04,
-    "days_held": 1,
+    "last_px": 8.9,
+    "value": 8891.1,
+    "ret": -11.04,
+    "days_held": 2,
     "sell_on": "about 2027-02-16"
    },
    {
@@ -382,10 +428,10 @@
     "shares": 271,
     "bought": "2026-11-17",
     "buy_px": 36.8786,
-    "last_px": 35.95,
-    "value": 9742.45,
-    "ret": -2.52,
-    "days_held": 1,
+    "last_px": 36.66,
+    "value": 9934.86,
+    "ret": -0.59,
+    "days_held": 2,
     "sell_on": "about 2027-02-16"
    },
    {
@@ -393,10 +439,10 @@
     "shares": 1141,
     "bought": "2026-11-18",
     "buy_px": 8.6071,
-    "last_px": 8.22,
-    "value": 9379.02,
-    "ret": -4.5,
-    "days_held": 0,
+    "last_px": 8.14,
+    "value": 9287.74,
+    "ret": -5.43,
+    "days_held": 1,
     "sell_on": "about 2027-02-17"
    },
    {
@@ -529,45 +575,11 @@
    },
    {
     "date": "2026-11-19",
-    "value": 96210.75,
+    "value": 96211.98,
     "sp": 96950.12,
     "in_stocks": 39.3
    }
   ]
  },
- "pending_filings": [
-  {
-   "ticker": "FBIO",
-   "company": "Fortress Biotech, Inc.",
-   "filing_day": "2026-11-19",
-   "filing_time": "2026-11-19 17:54",
-   "insiders": "Jin David, Rosenwald Lindsay A Md",
-   "value": 340397,
-   "insider_price": 1.845,
-   "status": "provisional",
-   "note": "Reported today; pending nightly review"
-  },
-  {
-   "ticker": "HMH",
-   "company": "Hmh Holding Inc",
-   "filing_day": "2026-11-19",
-   "filing_time": "2026-11-19 11:56",
-   "insiders": "Bergsvik Eirik, McGee Thomas W.",
-   "value": 1736052,
-   "insider_price": 11.39,
-   "status": "provisional",
-   "note": "Reported today; pending nightly review"
-  },
-  {
-   "ticker": "VTIX",
-   "company": "Virtuix Holdings Inc.",
-   "filing_day": "2026-11-19",
-   "filing_time": "2026-11-19 20:07",
-   "insiders": "Goetgeluk Jan Roger, McGinnis Thomas Lynn",
-   "value": 80870,
-   "insider_price": 0.4,
-   "status": "provisional",
-   "note": "Reported today; pending nightly review"
-  }
- ]
+ "pending_filings": []
 }

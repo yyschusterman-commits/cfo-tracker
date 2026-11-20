@@ -19,14 +19,21 @@
    "insiders": "Bergsvik Eirik, McGee Thomas W.",
    "value": 1736052,
    "insider_price": 11.39,
-   "status": "waiting",
+   "status": "open",
    "note": "",
    "vol60": 0.783,
    "adv20": 4163320,
    "mcap": 138975096,
    "buy_pct_of_company": 1.2492,
    "score": 94,
-   "limit": 11.7317
+   "limit": 11.7317,
+   "entry_date": "2026-11-20",
+   "open_price": 11.15,
+   "days_held": 0,
+   "ret": -1.52,
+   "spy_ret": -3.33,
+   "excess": 1.8,
+   "net_excess": 0.7
   },
   {
    "ticker": "FBIO",
@@ -87,11 +94,11 @@
    "limit": 8.5954,
    "entry_date": "2026-11-18",
    "open_price": 8.56,
-   "days_held": 1,
-   "ret": -4.91,
-   "spy_ret": -2.39,
-   "excess": -2.52,
-   "net_excess": -3.62
+   "days_held": 2,
+   "ret": -7.13,
+   "spy_ret": -5.94,
+   "excess": -1.19,
+   "net_excess": -2.29
   },
   {
    "ticker": "MP",
@@ -111,11 +118,11 @@
    "limit": 35.9058,
    "entry_date": "2026-11-18",
    "open_price": 34.77,
-   "days_held": 1,
-   "ret": 5.44,
-   "spy_ret": -2.39,
-   "excess": 7.82,
-   "net_excess": 7.12
+   "days_held": 2,
+   "ret": -2.36,
+   "spy_ret": -5.94,
+   "excess": 3.58,
+   "net_excess": 2.88
   },
   {
    "ticker": "ATEC",
@@ -135,11 +142,11 @@
    "limit": 6.9937,
    "entry_date": "2026-11-18",
    "open_price": 6.96,
-   "days_held": 1,
-   "ret": -0.86,
-   "spy_ret": -2.39,
-   "excess": 1.52,
-   "net_excess": 0.82
+   "days_held": 2,
+   "ret": -4.02,
+   "spy_ret": -5.94,
+   "excess": 1.92,
+   "net_excess": 1.22
   },
   {
    "ticker": "REI",
@@ -170,11 +177,11 @@
    "limit": 37.8525,
    "entry_date": "2026-11-17",
    "open_price": 36.75,
-   "days_held": 1,
-   "ret": 5.44,
-   "spy_ret": -3.05,
-   "excess": 8.49,
-   "net_excess": 7.79
+   "days_held": 2,
+   "ret": -2.36,
+   "spy_ret": -6.58,
+   "excess": 4.22,
+   "net_excess": 3.52
   },
   {
    "ticker": "BW",
@@ -213,11 +220,11 @@
    "limit": 10.1558,
    "entry_date": "2026-11-17",
    "open_price": 9.95,
-   "days_held": 2,
-   "ret": -10.55,
-   "spy_ret": -3.05,
-   "excess": -7.5,
-   "net_excess": -8.6
+   "days_held": 3,
+   "ret": -9.95,
+   "spy_ret": -6.58,
+   "excess": -3.37,
+   "net_excess": -4.47
   }
  ],
  "runs": [
@@ -406,24 +413,31 @@
    "new": 0,
    "provisional": 1,
    "errors": []
+  },
+  {
+   "at": "2026-11-20 17:17 ET",
+   "for_day": "2026-11-20",
+   "new": 0,
+   "provisional": 3,
+   "errors": []
   }
  ],
- "updated": "2026-11-20 09:00 ET",
+ "updated": "2026-11-20 17:17 ET",
  "paper": {
   "start": "2026-11-17",
   "start_value": 100000.0,
-  "as_of": "2026-11-19",
+  "as_of": "2026-11-20",
   "intraday": false,
-  "value": 96211.98,
-  "ret": -3.79,
-  "sp_value": 96950.12,
-  "sp_ret": -3.05,
-  "cash": 411.41,
-  "spy_shares": 81,
-  "spy_value": 57985.47,
-  "in_stocks": 39.3,
-  "max_drop": -3.79,
-  "slots_used": 4,
+  "value": 93009.88,
+  "ret": -6.99,
+  "sp_value": 93420.82,
+  "sp_ret": -6.58,
+  "cash": 67.45,
+  "spy_shares": 68,
+  "spy_value": 46907.08,
+  "in_stocks": 49.5,
+  "max_drop": -6.99,
+  "slots_used": 5,
   "slots": 10,
   "holdings": [
    {
@@ -431,10 +445,10 @@
     "shares": 999,
     "bought": "2026-11-17",
     "buy_px": 10.0047,
-    "last_px": 8.9,
-    "value": 8891.1,
-    "ret": -11.04,
-    "days_held": 2,
+    "last_px": 8.96,
+    "value": 8951.04,
+    "ret": -10.44,
+    "days_held": 3,
     "sell_on": "about 2027-02-16"
    },
    {
@@ -442,10 +456,10 @@
     "shares": 271,
     "bought": "2026-11-17",
     "buy_px": 36.8786,
-    "last_px": 36.66,
-    "value": 9934.86,
-    "ret": -0.59,
-    "days_held": 2,
+    "last_px": 33.95,
+    "value": 9200.45,
+    "ret": -7.94,
+    "days_held": 3,
     "sell_on": "about 2027-02-16"
    },
    {
@@ -453,10 +467,10 @@
     "shares": 1141,
     "bought": "2026-11-18",
     "buy_px": 8.6071,
-    "last_px": 8.14,
-    "value": 9287.74,
-    "ret": -5.43,
-    "days_held": 1,
+    "last_px": 7.95,
+    "value": 9070.95,
+    "ret": -7.63,
+    "days_held": 2,
     "sell_on": "about 2027-02-17"
    },
    {
@@ -464,11 +478,22 @@
     "shares": 1406,
     "bought": "2026-11-18",
     "buy_px": 6.9844,
-    "last_px": 6.9,
-    "value": 9701.4,
-    "ret": -1.21,
-    "days_held": 1,
+    "last_px": 6.68,
+    "value": 9392.08,
+    "ret": -4.36,
+    "days_held": 2,
     "sell_on": "about 2027-02-17"
+   },
+   {
+    "ticker": "HMH",
+    "shares": 858,
+    "bought": "2026-11-20",
+    "buy_px": 11.2113,
+    "last_px": 10.98,
+    "value": 9420.84,
+    "ret": -2.06,
+    "days_held": 0,
+    "sell_on": "about 2027-02-19"
    }
   ],
   "trades": [],
@@ -572,6 +597,26 @@
     "amount": 0.0,
     "cash": 411.41,
     "note": "already holding MP"
+   },
+   {
+    "date": "2026-11-20",
+    "action": "SPY SELL",
+    "ticker": "SPY",
+    "shares": 13,
+    "price": 713.56,
+    "amount": 9275.35,
+    "cash": 9686.76,
+    "note": "to pay for HMH"
+   },
+   {
+    "date": "2026-11-20",
+    "action": "BUY",
+    "ticker": "HMH",
+    "shares": 858,
+    "price": 11.2113,
+    "amount": -9619.32,
+    "cash": 67.45,
+    "note": "score 94, 10.0% of account"
    }
   ],
   "history": [
@@ -592,10 +637,27 @@
     "value": 96211.98,
     "sp": 96950.12,
     "in_stocks": 39.3
+   },
+   {
+    "date": "2026-11-20",
+    "value": 93009.88,
+    "sp": 93420.82,
+    "in_stocks": 49.5
    }
   ]
  },
  "pending_filings": [
+  {
+   "ticker": "ARR",
+   "company": "Armour Residential Reit, Inc.",
+   "filing_day": "2026-11-20",
+   "filing_time": "2026-11-20 16:31",
+   "insiders": "Harper Gordon",
+   "value": 27247,
+   "insider_price": 10.9,
+   "status": "provisional",
+   "note": "Reported today; pending nightly review"
+  },
   {
    "ticker": "BFH",
    "company": "Bread Financial Holdings, Inc.",
@@ -604,6 +666,17 @@
    "insiders": "Beberman Perry S",
    "value": 220400,
    "insider_price": 22.04,
+   "status": "provisional",
+   "note": "Reported today; pending nightly review"
+  },
+  {
+   "ticker": "FLG",
+   "company": "Flagstar Bank, National Association",
+   "filing_day": "2026-11-20",
+   "filing_time": "2026-11-20 14:25",
+   "insiders": "Smith Lee Matthew",
+   "value": 49650,
+   "insider_price": 9.93,
    "status": "provisional",
    "note": "Reported today; pending nightly review"
   }

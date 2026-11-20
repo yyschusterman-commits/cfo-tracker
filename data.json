@@ -420,9 +420,18 @@
    "new": 0,
    "provisional": 3,
    "errors": []
+  },
+  {
+   "at": "2026-11-20 17:41 ET",
+   "for_day": "2026-11-20",
+   "new": 0,
+   "provisional": 3,
+   "errors": [
+    "scrape: OpenInsider scrape failed"
+   ]
   }
  ],
- "updated": "2026-11-20 17:17 ET",
+ "updated": "2026-11-20 17:41 ET",
  "paper": {
   "start": "2026-11-17",
   "start_value": 100000.0,

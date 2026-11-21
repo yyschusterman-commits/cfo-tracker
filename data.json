@@ -1,6 +1,55 @@
 {
  "signals": [
   {
+   "ticker": "FLG",
+   "company": "Flagstar Bank, National Association",
+   "filing_day": "2026-11-20",
+   "filing_time": "2026-11-20 14:25",
+   "insiders": "Smith Lee Matthew",
+   "value": 49650,
+   "insider_price": 9.93,
+   "status": "skipped",
+   "note": "score 22 under 33",
+   "vol60": 0.297,
+   "adv20": 63986906,
+   "mcap": 3954385938,
+   "buy_pct_of_company": 0.0013,
+   "score": 22
+  },
+  {
+   "ticker": "BFH",
+   "company": "Bread Financial Holdings, Inc.",
+   "filing_day": "2026-11-20",
+   "filing_time": "2026-11-20 08:21",
+   "insiders": "Beberman Perry S",
+   "value": 220400,
+   "insider_price": 22.04,
+   "status": "waiting",
+   "note": "",
+   "vol60": 0.332,
+   "adv20": 61365842,
+   "mcap": 836665774,
+   "buy_pct_of_company": 0.0263,
+   "score": 54,
+   "limit": 22.7012
+  },
+  {
+   "ticker": "ARR",
+   "company": "Armour Residential Reit, Inc.",
+   "filing_day": "2026-11-20",
+   "filing_time": "2026-11-20 16:31",
+   "insiders": "Harper Gordon",
+   "value": 27247,
+   "insider_price": 10.9,
+   "status": "skipped",
+   "note": "score 22 under 33",
+   "vol60": 0.286,
+   "adv20": 55712549,
+   "mcap": 1617728078,
+   "buy_pct_of_company": 0.0017,
+   "score": 22
+  },
+  {
    "ticker": "VTIX",
    "company": "Virtuix Holdings Inc.",
    "filing_day": "2026-11-19",
@@ -30,10 +79,10 @@
    "entry_date": "2026-11-20",
    "open_price": 11.15,
    "days_held": 0,
-   "ret": -1.52,
+   "ret": 0.18,
    "spy_ret": -3.33,
-   "excess": 1.8,
-   "net_excess": 0.7
+   "excess": 3.51,
+   "net_excess": 2.41
   },
   {
    "ticker": "FBIO",
@@ -429,23 +478,30 @@
    "errors": [
     "scrape: OpenInsider scrape failed"
    ]
+  },
+  {
+   "at": "2026-11-21 06:46 ET",
+   "for_day": "2026-11-21",
+   "new": 3,
+   "provisional": 0,
+   "errors": []
   }
  ],
- "updated": "2026-11-20 17:41 ET",
+ "updated": "2026-11-21 06:46 ET",
  "paper": {
   "start": "2026-11-17",
   "start_value": 100000.0,
   "as_of": "2026-11-20",
   "intraday": false,
-  "value": 93009.88,
-  "ret": -6.99,
+  "value": 93173.2,
+  "ret": -6.83,
   "sp_value": 93420.82,
   "sp_ret": -6.58,
-  "cash": 67.45,
+  "cash": 66.06,
   "spy_shares": 68,
   "spy_value": 46907.08,
-  "in_stocks": 49.5,
-  "max_drop": -6.99,
+  "in_stocks": 49.6,
+  "max_drop": -6.83,
   "slots_used": 5,
   "slots": 10,
   "holdings": [
@@ -495,12 +551,12 @@
    },
    {
     "ticker": "HMH",
-    "shares": 858,
+    "shares": 873,
     "bought": "2026-11-20",
-    "buy_px": 11.2113,
+    "buy_px": 11.0203,
     "last_px": 10.98,
-    "value": 9420.84,
-    "ret": -2.06,
+    "value": 9585.54,
+    "ret": -0.37,
     "days_held": 0,
     "sell_on": "about 2027-02-19"
    }
@@ -621,10 +677,10 @@
     "date": "2026-11-20",
     "action": "BUY",
     "ticker": "HMH",
-    "shares": 858,
-    "price": 11.2113,
-    "amount": -9619.32,
-    "cash": 67.45,
+    "shares": 873,
+    "price": 11.0203,
+    "amount": -9620.7,
+    "cash": 66.06,
     "note": "score 94, 10.0% of account"
    }
   ],
@@ -649,45 +705,11 @@
    },
    {
     "date": "2026-11-20",
-    "value": 93009.88,
+    "value": 93173.2,
     "sp": 93420.82,
-    "in_stocks": 49.5
+    "in_stocks": 49.6
    }
   ]
  },
- "pending_filings": [
-  {
-   "ticker": "ARR",
-   "company": "Armour Residential Reit, Inc.",
-   "filing_day": "2026-11-20",
-   "filing_time": "2026-11-20 16:31",
-   "insiders": "Harper Gordon",
-   "value": 27247,
-   "insider_price": 10.9,
-   "status": "provisional",
-   "note": "Reported today; pending nightly review"
-  },
-  {
-   "ticker": "BFH",
-   "company": "Bread Financial Holdings, Inc.",
-   "filing_day": "2026-11-20",
-   "filing_time": "2026-11-20 08:21",
-   "insiders": "Beberman Perry S",
-   "value": 220400,
-   "insider_price": 22.04,
-   "status": "provisional",
-   "note": "Reported today; pending nightly review"
-  },
-  {
-   "ticker": "FLG",
-   "company": "Flagstar Bank, National Association",
-   "filing_day": "2026-11-20",
-   "filing_time": "2026-11-20 14:25",
-   "insiders": "Smith Lee Matthew",
-   "value": 49650,
-   "insider_price": 9.93,
-   "status": "provisional",
-   "note": "Reported today; pending nightly review"
-  }
- ]
+ "pending_filings": []
 }

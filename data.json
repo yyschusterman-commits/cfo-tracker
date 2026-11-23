@@ -24,14 +24,16 @@
    "insiders": "Beberman Perry S",
    "value": 220400,
    "insider_price": 22.04,
-   "status": "waiting",
-   "note": "",
+   "status": "skipped",
+   "note": "opened +324.2% vs CFO price (limit not filled)",
    "vol60": 0.332,
    "adv20": 61365842,
    "mcap": 836665774,
    "buy_pct_of_company": 0.0263,
    "score": 54,
-   "limit": 22.7012
+   "limit": 22.7012,
+   "entry_date": "2026-11-23",
+   "open_price": 93.5
   },
   {
    "ticker": "ARR",
@@ -78,11 +80,11 @@
    "limit": 11.7317,
    "entry_date": "2026-11-20",
    "open_price": 11.15,
-   "days_held": 0,
-   "ret": 0.18,
-   "spy_ret": -3.33,
-   "excess": 3.51,
-   "net_excess": 2.41
+   "days_held": 1,
+   "ret": 4.38,
+   "spy_ret": 1.25,
+   "excess": 3.13,
+   "net_excess": 2.03
   },
   {
    "ticker": "FBIO",
@@ -143,11 +145,11 @@
    "limit": 8.5954,
    "entry_date": "2026-11-18",
    "open_price": 8.56,
-   "days_held": 2,
-   "ret": -7.13,
-   "spy_ret": -5.94,
-   "excess": -1.19,
-   "net_excess": -2.29
+   "days_held": 3,
+   "ret": -2.45,
+   "spy_ret": -1.48,
+   "excess": -0.97,
+   "net_excess": -2.07
   },
   {
    "ticker": "MP",
@@ -167,11 +169,11 @@
    "limit": 35.9058,
    "entry_date": "2026-11-18",
    "open_price": 34.77,
-   "days_held": 2,
-   "ret": -2.36,
-   "spy_ret": -5.94,
-   "excess": 3.58,
-   "net_excess": 2.88
+   "days_held": 3,
+   "ret": 3.36,
+   "spy_ret": -1.48,
+   "excess": 4.85,
+   "net_excess": 4.15
   },
   {
    "ticker": "ATEC",
@@ -191,11 +193,11 @@
    "limit": 6.9937,
    "entry_date": "2026-11-18",
    "open_price": 6.96,
-   "days_held": 2,
-   "ret": -4.02,
-   "spy_ret": -5.94,
-   "excess": 1.92,
-   "net_excess": 1.22
+   "days_held": 3,
+   "ret": -1.58,
+   "spy_ret": -1.48,
+   "excess": -0.1,
+   "net_excess": -0.8
   },
   {
    "ticker": "REI",
@@ -226,11 +228,11 @@
    "limit": 37.8525,
    "entry_date": "2026-11-17",
    "open_price": 36.75,
-   "days_held": 2,
-   "ret": -2.36,
-   "spy_ret": -6.58,
-   "excess": 4.22,
-   "net_excess": 3.52
+   "days_held": 3,
+   "ret": 3.36,
+   "spy_ret": -2.15,
+   "excess": 5.52,
+   "net_excess": 4.82
   },
   {
    "ticker": "BW",
@@ -269,11 +271,11 @@
    "limit": 10.1558,
    "entry_date": "2026-11-17",
    "open_price": 9.95,
-   "days_held": 3,
-   "ret": -9.95,
-   "spy_ret": -6.58,
-   "excess": -3.37,
-   "net_excess": -4.47
+   "days_held": 4,
+   "ret": -4.67,
+   "spy_ret": -2.15,
+   "excess": -2.52,
+   "net_excess": -3.62
   }
  ],
  "runs": [
@@ -506,21 +508,28 @@
    "new": 0,
    "provisional": 0,
    "errors": []
+  },
+  {
+   "at": "2026-11-23 12:21 ET",
+   "for_day": "2026-11-23",
+   "new": 0,
+   "provisional": 2,
+   "errors": []
   }
  ],
- "updated": "2026-11-22 00:35 ET",
+ "updated": "2026-11-23 12:21 ET",
  "paper": {
   "start": "2026-11-17",
   "start_value": 100000.0,
-  "as_of": "2026-11-20",
-  "intraday": false,
-  "value": 93173.2,
-  "ret": -6.83,
-  "sp_value": 93420.82,
-  "sp_ret": -6.58,
+  "as_of": "2026-11-23",
+  "intraday": true,
+  "value": 97556.88,
+  "ret": -2.44,
+  "sp_value": 97848.02,
+  "sp_ret": -2.15,
   "cash": 66.06,
   "spy_shares": 68,
-  "spy_value": 46907.08,
+  "spy_value": 49130.0,
   "in_stocks": 49.6,
   "max_drop": -6.83,
   "slots_used": 5,
@@ -531,10 +540,10 @@
     "shares": 999,
     "bought": "2026-11-17",
     "buy_px": 10.0047,
-    "last_px": 8.96,
-    "value": 8951.04,
-    "ret": -10.44,
-    "days_held": 3,
+    "last_px": 9.485,
+    "value": 9475.51,
+    "ret": -5.19,
+    "days_held": 4,
     "sell_on": "about 2027-02-16"
    },
    {
@@ -542,10 +551,10 @@
     "shares": 271,
     "bought": "2026-11-17",
     "buy_px": 36.8786,
-    "last_px": 33.95,
-    "value": 9200.45,
-    "ret": -7.94,
-    "days_held": 3,
+    "last_px": 35.94,
+    "value": 9739.74,
+    "ret": -2.55,
+    "days_held": 4,
     "sell_on": "about 2027-02-16"
    },
    {
@@ -553,10 +562,10 @@
     "shares": 1141,
     "bought": "2026-11-18",
     "buy_px": 8.6071,
-    "last_px": 7.95,
-    "value": 9070.95,
-    "ret": -7.63,
-    "days_held": 2,
+    "last_px": 8.35,
+    "value": 9527.35,
+    "ret": -2.99,
+    "days_held": 3,
     "sell_on": "about 2027-02-17"
    },
    {
@@ -564,10 +573,10 @@
     "shares": 1406,
     "bought": "2026-11-18",
     "buy_px": 6.9844,
-    "last_px": 6.68,
-    "value": 9392.08,
-    "ret": -4.36,
-    "days_held": 2,
+    "last_px": 6.85,
+    "value": 9631.1,
+    "ret": -1.92,
+    "days_held": 3,
     "sell_on": "about 2027-02-17"
    },
    {
@@ -575,10 +584,10 @@
     "shares": 873,
     "bought": "2026-11-20",
     "buy_px": 11.0203,
-    "last_px": 10.98,
-    "value": 9585.54,
-    "ret": -0.37,
-    "days_held": 0,
+    "last_px": 11.44,
+    "value": 9987.12,
+    "ret": 3.81,
+    "days_held": 1,
     "sell_on": "about 2027-02-19"
    }
   ],
@@ -729,8 +738,37 @@
     "value": 93173.2,
     "sp": 93420.82,
     "in_stocks": 49.6
+   },
+   {
+    "date": "2026-11-23",
+    "value": 97556.88,
+    "sp": 97848.02,
+    "in_stocks": 49.6
    }
   ]
  },
- "pending_filings": []
+ "pending_filings": [
+  {
+   "ticker": "GNL",
+   "company": "Global Net Lease, Inc.",
+   "filing_day": "2026-11-23",
+   "filing_time": "2026-11-23 06:15",
+   "insiders": "Galloway Jesse Charles, Kabnick Lisa, Kravel Ori, Masterson Christopher J., Perla Stanley R, Richardson Leon, Weil Edward M Jr.",
+   "value": 636280,
+   "insider_price": 6.0343,
+   "status": "provisional",
+   "note": "Reported today; pending nightly review"
+  },
+  {
+   "ticker": "TROX",
+   "company": "Tronox Holdings Plc",
+   "filing_day": "2026-11-23",
+   "filing_time": "2026-11-23 08:55",
+   "insiders": "Srivisal John",
+   "value": 48517,
+   "insider_price": 1.48,
+   "status": "provisional",
+   "note": "Reported today; pending nightly review"
+  }
+ ]
 }

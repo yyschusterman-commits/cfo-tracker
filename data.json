@@ -615,9 +615,16 @@
    "new": 5,
    "provisional": 0,
    "errors": []
+  },
+  {
+   "at": "2026-11-24 09:16 ET",
+   "for_day": "2026-11-24",
+   "new": 0,
+   "provisional": 1,
+   "errors": []
   }
  ],
- "updated": "2026-11-24 00:22 ET",
+ "updated": "2026-11-24 09:16 ET",
  "paper": {
   "start": "2026-11-17",
   "start_value": 100000.0,
@@ -847,5 +854,17 @@
    }
   ]
  },
- "pending_filings": []
+ "pending_filings": [
+  {
+   "ticker": "PRE",
+   "company": "Prenetics Global Ltd",
+   "filing_day": "2026-11-24",
+   "filing_time": "2026-11-24 08:06",
+   "insiders": "Rosin Brian J",
+   "value": 404200,
+   "insider_price": 10.11,
+   "status": "provisional",
+   "note": "Reported today; pending nightly review"
+  }
+ ]
 }

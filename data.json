@@ -19,14 +19,16 @@
    "insiders": "Galloway Jesse Charles, Kabnick Lisa, Kravel Ori, Masterson Christopher J., Perla Stanley R, Richardson Leon, Weil Edward M Jr.",
    "value": 636280,
    "insider_price": 6.0343,
-   "status": "waiting",
-   "note": "",
+   "status": "skipped",
+   "note": "opened +3.4% vs CFO price (limit not filled)",
    "vol60": 0.228,
    "adv20": 24832421,
    "mcap": 1344682929,
    "buy_pct_of_company": 0.0473,
    "score": 48,
-   "limit": 6.2153
+   "limit": 6.2153,
+   "entry_date": "2026-11-24",
+   "open_price": 6.24
   },
   {
    "ticker": "BULL",
@@ -36,14 +38,21 @@
    "insiders": "Denier Anthony Michael, Wang Haichen",
    "value": 134687,
    "insider_price": 4.485,
-   "status": "waiting",
+   "status": "open",
    "note": "",
    "vol60": 0.751,
    "adv20": 54467362,
    "mcap": 2424911713,
    "buy_pct_of_company": 0.0056,
    "score": 60,
-   "limit": 4.6196
+   "limit": 4.6196,
+   "entry_date": "2026-11-24",
+   "open_price": 4.37,
+   "days_held": 0,
+   "ret": 2.17,
+   "spy_ret": 0.54,
+   "excess": 1.64,
+   "net_excess": 0.94
   },
   {
    "ticker": "AIIR",
@@ -53,14 +62,16 @@
    "insiders": "Lotfy Bassem",
    "value": 86290,
    "insider_price": 6.16,
-   "status": "waiting",
-   "note": "",
+   "status": "skipped",
+   "note": "opened +4.2% vs CFO price (limit not filled)",
    "vol60": 0.661,
    "adv20": 72202,
    "mcap": 957199764,
    "buy_pct_of_company": 0.009,
    "score": 63,
-   "limit": 6.3448
+   "limit": 6.3448,
+   "entry_date": "2026-11-24",
+   "open_price": 6.42
   },
   {
    "ticker": "ADTN",
@@ -70,14 +81,21 @@
    "insiders": "Santo Timothy P, Stanton Thomas R",
    "value": 246108,
    "insider_price": 4.23,
-   "status": "waiting",
+   "status": "open",
    "note": "",
    "vol60": 0.794,
    "adv20": 11077251,
    "mcap": 344727340,
    "buy_pct_of_company": 0.0714,
    "score": 88,
-   "limit": 4.3569
+   "limit": 4.3569,
+   "entry_date": "2026-11-24",
+   "open_price": 4.33,
+   "days_held": 0,
+   "ret": -1.76,
+   "spy_ret": 0.54,
+   "excess": -2.29,
+   "net_excess": -3.39
   },
   {
    "ticker": "FLG",
@@ -159,11 +177,11 @@
    "limit": 11.7317,
    "entry_date": "2026-11-20",
    "open_price": 11.15,
-   "days_held": 1,
-   "ret": 1.92,
-   "spy_ret": 1.22,
-   "excess": 0.69,
-   "net_excess": -0.41
+   "days_held": 2,
+   "ret": 0.91,
+   "spy_ret": 0.76,
+   "excess": 0.15,
+   "net_excess": -0.95
   },
   {
    "ticker": "FBIO",
@@ -224,11 +242,11 @@
    "limit": 8.5954,
    "entry_date": "2026-11-18",
    "open_price": 8.56,
-   "days_held": 3,
-   "ret": -1.99,
-   "spy_ret": -1.51,
-   "excess": -0.48,
-   "net_excess": -1.58
+   "days_held": 4,
+   "ret": -0.82,
+   "spy_ret": -1.96,
+   "excess": 1.14,
+   "net_excess": 0.04
   },
   {
    "ticker": "MP",
@@ -248,11 +266,11 @@
    "limit": 35.9058,
    "entry_date": "2026-11-18",
    "open_price": 34.77,
-   "days_held": 3,
-   "ret": 2.21,
-   "spy_ret": -1.51,
-   "excess": 3.73,
-   "net_excess": 3.03
+   "days_held": 4,
+   "ret": 4.24,
+   "spy_ret": -1.96,
+   "excess": 6.2,
+   "net_excess": 5.5
   },
   {
    "ticker": "ATEC",
@@ -272,11 +290,11 @@
    "limit": 6.9937,
    "entry_date": "2026-11-18",
    "open_price": 6.96,
-   "days_held": 3,
-   "ret": -1.01,
-   "spy_ret": -1.51,
-   "excess": 0.51,
-   "net_excess": -0.19
+   "days_held": 4,
+   "ret": 1.01,
+   "spy_ret": -1.96,
+   "excess": 2.97,
+   "net_excess": 2.27
   },
   {
    "ticker": "REI",
@@ -307,11 +325,11 @@
    "limit": 37.8525,
    "entry_date": "2026-11-17",
    "open_price": 36.75,
-   "days_held": 3,
-   "ret": 2.21,
-   "spy_ret": -2.18,
-   "excess": 4.39,
-   "net_excess": 3.69
+   "days_held": 4,
+   "ret": 4.24,
+   "spy_ret": -2.63,
+   "excess": 6.87,
+   "net_excess": 6.17
   },
   {
    "ticker": "BW",
@@ -350,11 +368,11 @@
    "limit": 10.1558,
    "entry_date": "2026-11-17",
    "open_price": 9.95,
-   "days_held": 4,
-   "ret": -3.42,
-   "spy_ret": -2.18,
-   "excess": -1.24,
-   "net_excess": -2.34
+   "days_held": 5,
+   "ret": -4.02,
+   "spy_ret": -2.63,
+   "excess": -1.39,
+   "net_excess": -2.49
   }
  ],
  "runs": [
@@ -622,24 +640,31 @@
    "new": 0,
    "provisional": 1,
    "errors": []
+  },
+  {
+   "at": "2026-11-24 09:54 ET",
+   "for_day": "2026-11-24",
+   "new": 0,
+   "provisional": 1,
+   "errors": []
   }
  ],
- "updated": "2026-11-24 09:16 ET",
+ "updated": "2026-11-24 09:54 ET",
  "paper": {
   "start": "2026-11-17",
   "start_value": 100000.0,
-  "as_of": "2026-11-23",
-  "intraday": false,
-  "value": 97425.25,
-  "ret": -2.57,
-  "sp_value": 97819.58,
-  "sp_ret": -2.18,
-  "cash": 66.06,
-  "spy_shares": 68,
-  "spy_value": 49115.72,
-  "in_stocks": 49.5,
+  "as_of": "2026-11-24",
+  "intraday": true,
+  "value": 97392.24,
+  "ret": -2.61,
+  "sp_value": 97371.34,
+  "sp_ret": -2.63,
+  "cash": 608.98,
+  "spy_shares": 40,
+  "spy_value": 28760.8,
+  "in_stocks": 69.8,
   "max_drop": -6.83,
-  "slots_used": 5,
+  "slots_used": 7,
   "slots": 10,
   "holdings": [
    {
@@ -647,10 +672,10 @@
     "shares": 999,
     "bought": "2026-11-17",
     "buy_px": 10.0047,
-    "last_px": 9.61,
-    "value": 9600.39,
-    "ret": -3.95,
-    "days_held": 4,
+    "last_px": 9.55,
+    "value": 9540.45,
+    "ret": -4.55,
+    "days_held": 5,
     "sell_on": "about 2027-02-16"
    },
    {
@@ -658,10 +683,10 @@
     "shares": 271,
     "bought": "2026-11-17",
     "buy_px": 36.8786,
-    "last_px": 35.54,
-    "value": 9631.34,
-    "ret": -3.63,
-    "days_held": 4,
+    "last_px": 36.245,
+    "value": 9822.39,
+    "ret": -1.72,
+    "days_held": 5,
     "sell_on": "about 2027-02-16"
    },
    {
@@ -669,10 +694,10 @@
     "shares": 1141,
     "bought": "2026-11-18",
     "buy_px": 8.6071,
-    "last_px": 8.39,
-    "value": 9572.99,
-    "ret": -2.52,
-    "days_held": 3,
+    "last_px": 8.49,
+    "value": 9687.09,
+    "ret": -1.36,
+    "days_held": 4,
     "sell_on": "about 2027-02-17"
    },
    {
@@ -680,10 +705,10 @@
     "shares": 1406,
     "bought": "2026-11-18",
     "buy_px": 6.9844,
-    "last_px": 6.89,
-    "value": 9687.34,
-    "ret": -1.35,
-    "days_held": 3,
+    "last_px": 7.03,
+    "value": 9884.18,
+    "ret": 0.65,
+    "days_held": 4,
     "sell_on": "about 2027-02-17"
    },
    {
@@ -691,11 +716,33 @@
     "shares": 873,
     "bought": "2026-11-20",
     "buy_px": 11.0203,
-    "last_px": 11.17,
-    "value": 9751.41,
-    "ret": 1.36,
-    "days_held": 1,
+    "last_px": 11.06,
+    "value": 9655.38,
+    "ret": 0.36,
+    "days_held": 2,
     "sell_on": "about 2027-02-19"
+   },
+   {
+    "ticker": "ADTN",
+    "shares": 2237,
+    "bought": "2026-11-24",
+    "buy_px": 4.3538,
+    "last_px": 4.254,
+    "value": 9516.2,
+    "ret": -2.29,
+    "days_held": 0,
+    "sell_on": "about 2027-02-23"
+   },
+   {
+    "ticker": "BULL",
+    "shares": 2221,
+    "bought": "2026-11-24",
+    "buy_px": 4.3853,
+    "last_px": 4.465,
+    "value": 9916.77,
+    "ret": 1.82,
+    "days_held": 0,
+    "sell_on": "about 2027-02-23"
    }
   ],
   "trades": [],
@@ -819,6 +866,46 @@
     "amount": -9620.7,
     "cash": 66.06,
     "note": "score 94, 10.0% of account"
+   },
+   {
+    "date": "2026-11-24",
+    "action": "SPY SELL",
+    "ticker": "SPY",
+    "shares": 14,
+    "price": 715.148,
+    "amount": 10011.07,
+    "cash": 10077.13,
+    "note": "to pay for ADTN"
+   },
+   {
+    "date": "2026-11-24",
+    "action": "BUY",
+    "ticker": "ADTN",
+    "shares": 2237,
+    "price": 4.3538,
+    "amount": -9739.48,
+    "cash": 337.64,
+    "note": "score 88, 10.0% of account"
+   },
+   {
+    "date": "2026-11-24",
+    "action": "SPY SELL",
+    "ticker": "SPY",
+    "shares": 14,
+    "price": 715.148,
+    "amount": 10011.07,
+    "cash": 10348.72,
+    "note": "to pay for BULL"
+   },
+   {
+    "date": "2026-11-24",
+    "action": "BUY",
+    "ticker": "BULL",
+    "shares": 2221,
+    "price": 4.3853,
+    "amount": -9739.74,
+    "cash": 608.98,
+    "note": "score 60, 10.0% of account"
    }
   ],
   "history": [
@@ -851,6 +938,12 @@
     "value": 97425.25,
     "sp": 97819.58,
     "in_stocks": 49.5
+   },
+   {
+    "date": "2026-11-24",
+    "value": 97392.24,
+    "sp": 97371.34,
+    "in_stocks": 69.8
    }
   ]
  },

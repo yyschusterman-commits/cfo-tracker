@@ -1,6 +1,85 @@
 {
  "signals": [
   {
+   "ticker": "TROX",
+   "company": "Tronox Holdings Plc",
+   "filing_day": "2026-11-23",
+   "filing_time": "2026-11-23 08:55",
+   "insiders": "Srivisal John",
+   "value": 48517,
+   "insider_price": 1.48,
+   "status": "skipped",
+   "note": "price under $2"
+  },
+  {
+   "ticker": "GNL",
+   "company": "Global Net Lease, Inc.",
+   "filing_day": "2026-11-23",
+   "filing_time": "2026-11-23 06:15",
+   "insiders": "Galloway Jesse Charles, Kabnick Lisa, Kravel Ori, Masterson Christopher J., Perla Stanley R, Richardson Leon, Weil Edward M Jr.",
+   "value": 636280,
+   "insider_price": 6.0343,
+   "status": "waiting",
+   "note": "",
+   "vol60": 0.228,
+   "adv20": 24832421,
+   "mcap": 1344682929,
+   "buy_pct_of_company": 0.0473,
+   "score": 48,
+   "limit": 6.2153
+  },
+  {
+   "ticker": "BULL",
+   "company": "Webull Corp",
+   "filing_day": "2026-11-23",
+   "filing_time": "2026-11-23 13:02",
+   "insiders": "Denier Anthony Michael, Wang Haichen",
+   "value": 134687,
+   "insider_price": 4.485,
+   "status": "waiting",
+   "note": "",
+   "vol60": 0.751,
+   "adv20": 54467362,
+   "mcap": 2424911713,
+   "buy_pct_of_company": 0.0056,
+   "score": 60,
+   "limit": 4.6196
+  },
+  {
+   "ticker": "AIIR",
+   "company": "Air Global Plc",
+   "filing_day": "2026-11-23",
+   "filing_time": "2026-11-23 16:05",
+   "insiders": "Lotfy Bassem",
+   "value": 86290,
+   "insider_price": 6.16,
+   "status": "waiting",
+   "note": "",
+   "vol60": 0.661,
+   "adv20": 72202,
+   "mcap": 957199764,
+   "buy_pct_of_company": 0.009,
+   "score": 63,
+   "limit": 6.3448
+  },
+  {
+   "ticker": "ADTN",
+   "company": "Adtran Holdings, Inc.",
+   "filing_day": "2026-11-23",
+   "filing_time": "2026-11-23 16:01",
+   "insiders": "Santo Timothy P, Stanton Thomas R",
+   "value": 246108,
+   "insider_price": 4.23,
+   "status": "waiting",
+   "note": "",
+   "vol60": 0.794,
+   "adv20": 11077251,
+   "mcap": 344727340,
+   "buy_pct_of_company": 0.0714,
+   "score": 88,
+   "limit": 4.3569
+  },
+  {
    "ticker": "FLG",
    "company": "Flagstar Bank, National Association",
    "filing_day": "2026-11-20",
@@ -529,9 +608,16 @@
    "new": 0,
    "provisional": 5,
    "errors": []
+  },
+  {
+   "at": "2026-11-24 00:22 ET",
+   "for_day": "2026-11-24",
+   "new": 5,
+   "provisional": 0,
+   "errors": []
   }
  ],
- "updated": "2026-11-23 21:55 ET",
+ "updated": "2026-11-24 00:22 ET",
  "paper": {
   "start": "2026-11-17",
   "start_value": 100000.0,
@@ -761,61 +847,5 @@
    }
   ]
  },
- "pending_filings": [
-  {
-   "ticker": "ADTN",
-   "company": "Adtran Holdings, Inc.",
-   "filing_day": "2026-11-23",
-   "filing_time": "2026-11-23 16:01",
-   "insiders": "Santo Timothy P, Stanton Thomas R",
-   "value": 246108,
-   "insider_price": 4.23,
-   "status": "provisional",
-   "note": "Reported today; pending nightly review"
-  },
-  {
-   "ticker": "AIIR",
-   "company": "Air Global Plc",
-   "filing_day": "2026-11-23",
-   "filing_time": "2026-11-23 16:05",
-   "insiders": "Lotfy Bassem",
-   "value": 86290,
-   "insider_price": 6.16,
-   "status": "provisional",
-   "note": "Reported today; pending nightly review"
-  },
-  {
-   "ticker": "BULL",
-   "company": "Webull Corp",
-   "filing_day": "2026-11-23",
-   "filing_time": "2026-11-23 13:02",
-   "insiders": "Denier Anthony Michael, Wang Haichen",
-   "value": 134687,
-   "insider_price": 4.485,
-   "status": "provisional",
-   "note": "Reported today; pending nightly review"
-  },
-  {
-   "ticker": "GNL",
-   "company": "Global Net Lease, Inc.",
-   "filing_day": "2026-11-23",
-   "filing_time": "2026-11-23 06:15",
-   "insiders": "Galloway Jesse Charles, Kabnick Lisa, Kravel Ori, Masterson Christopher J., Perla Stanley R, Richardson Leon, Weil Edward M Jr.",
-   "value": 636280,
-   "insider_price": 6.0343,
-   "status": "provisional",
-   "note": "Reported today; pending nightly review"
-  },
-  {
-   "ticker": "TROX",
-   "company": "Tronox Holdings Plc",
-   "filing_day": "2026-11-23",
-   "filing_time": "2026-11-23 08:55",
-   "insiders": "Srivisal John",
-   "value": 48517,
-   "insider_price": 1.48,
-   "status": "provisional",
-   "note": "Reported today; pending nightly review"
-  }
- ]
+ "pending_filings": []
 }

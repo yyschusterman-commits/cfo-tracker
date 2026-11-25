@@ -754,9 +754,16 @@
    "new": 5,
    "provisional": 0,
    "errors": []
+  },
+  {
+   "at": "2026-11-25 08:29 ET",
+   "for_day": "2026-11-25",
+   "new": 0,
+   "provisional": 0,
+   "errors": []
   }
  ],
- "updated": "2026-11-24 23:17 ET",
+ "updated": "2026-11-25 08:29 ET",
  "paper": {
   "start": "2026-11-17",
   "start_value": 100000.0,

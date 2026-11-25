@@ -1,6 +1,85 @@
 {
  "signals": [
   {
+   "ticker": "RNA",
+   "company": "Atrium Therapeutics, Inc.",
+   "filing_day": "2026-11-24",
+   "filing_time": "2026-11-24 16:05",
+   "insiders": "Winslow Brendan R.",
+   "value": 249417,
+   "insider_price": 7.13,
+   "status": "waiting",
+   "note": "",
+   "vol60": 0.732,
+   "adv20": 1897021,
+   "mcap": 153804845,
+   "buy_pct_of_company": 0.1622,
+   "score": 90,
+   "limit": 7.3439
+  },
+  {
+   "ticker": "PRE",
+   "company": "Prenetics Global Ltd",
+   "filing_day": "2026-11-24",
+   "filing_time": "2026-11-24 08:06",
+   "insiders": "Rosin Brian J",
+   "value": 404200,
+   "insider_price": 10.11,
+   "status": "waiting",
+   "note": "",
+   "vol60": 1.186,
+   "adv20": 4122802,
+   "mcap": 197289007,
+   "buy_pct_of_company": 0.2049,
+   "score": 97,
+   "limit": 10.4133
+  },
+  {
+   "ticker": "GRNT",
+   "company": "Granite Ridge Resources, Inc.",
+   "filing_day": "2026-11-24",
+   "filing_time": "2026-11-24 10:39",
+   "insiders": "Kettler Ronald Kyle",
+   "value": 27450,
+   "insider_price": 5.49,
+   "status": "waiting",
+   "note": "",
+   "vol60": 0.575,
+   "adv20": 8898755,
+   "mcap": 724401344,
+   "buy_pct_of_company": 0.0038,
+   "score": 51,
+   "limit": 5.6547
+  },
+  {
+   "ticker": "FLYX",
+   "company": "Flyexclusive Inc.",
+   "filing_day": "2026-11-24",
+   "filing_time": "2026-11-24 16:03",
+   "insiders": "Garner Bradley G",
+   "value": 25058,
+   "insider_price": 0.91,
+   "status": "skipped",
+   "note": "price under $2"
+  },
+  {
+   "ticker": "CTSO",
+   "company": "Cytosorbents Corp",
+   "filing_day": "2026-11-24",
+   "filing_time": "2026-11-24 18:08",
+   "insiders": "Bator Michael G., Chan Phillip P., Mariani Peter J, Sobel Alan D.",
+   "value": 469996,
+   "insider_price": 5.18,
+   "status": "waiting",
+   "note": "",
+   "vol60": 1.463,
+   "adv20": 107354,
+   "mcap": 22074891,
+   "buy_pct_of_company": 2.1291,
+   "score": 99,
+   "limit": 5.3354
+  },
+  {
    "ticker": "TROX",
    "company": "Tronox Holdings Plc",
    "filing_day": "2026-11-23",
@@ -668,19 +747,26 @@
    "new": 0,
    "provisional": 5,
    "errors": []
+  },
+  {
+   "at": "2026-11-24 23:17 ET",
+   "for_day": "2026-11-24",
+   "new": 5,
+   "provisional": 0,
+   "errors": []
   }
  ],
- "updated": "2026-11-24 19:48 ET",
+ "updated": "2026-11-24 23:17 ET",
  "paper": {
   "start": "2026-11-17",
   "start_value": 100000.0,
   "as_of": "2026-11-24",
   "intraday": false,
-  "value": 97114.05,
+  "value": 97114.1,
   "ret": -2.89,
   "sp_value": 97344.22,
   "sp_ret": -2.66,
-  "cash": 608.98,
+  "cash": 609.03,
   "spy_shares": 40,
   "spy_value": 28751.2,
   "in_stocks": 69.8,
@@ -893,9 +979,9 @@
     "action": "SPY SELL",
     "ticker": "SPY",
     "shares": 14,
-    "price": 715.148,
-    "amount": 10011.07,
-    "cash": 10077.13,
+    "price": 715.15,
+    "amount": 10011.1,
+    "cash": 10077.16,
     "note": "to pay for ADTN"
    },
    {
@@ -905,7 +991,7 @@
     "shares": 2237,
     "price": 4.3538,
     "amount": -9739.48,
-    "cash": 337.64,
+    "cash": 337.67,
     "note": "score 88, 10.0% of account"
    },
    {
@@ -913,9 +999,9 @@
     "action": "SPY SELL",
     "ticker": "SPY",
     "shares": 14,
-    "price": 715.148,
-    "amount": 10011.07,
-    "cash": 10348.72,
+    "price": 715.15,
+    "amount": 10011.1,
+    "cash": 10348.77,
     "note": "to pay for BULL"
    },
    {
@@ -925,7 +1011,7 @@
     "shares": 2221,
     "price": 4.3853,
     "amount": -9739.74,
-    "cash": 608.98,
+    "cash": 609.03,
     "note": "score 60, 10.0% of account"
    }
   ],
@@ -962,67 +1048,11 @@
    },
    {
     "date": "2026-11-24",
-    "value": 97114.05,
+    "value": 97114.1,
     "sp": 97344.22,
     "in_stocks": 69.8
    }
   ]
  },
- "pending_filings": [
-  {
-   "ticker": "CTSO",
-   "company": "Cytosorbents Corp",
-   "filing_day": "2026-11-24",
-   "filing_time": "2026-11-24 18:08",
-   "insiders": "Bator Michael G., Chan Phillip P., Mariani Peter J, Sobel Alan D.",
-   "value": 469996,
-   "insider_price": 5.18,
-   "status": "provisional",
-   "note": "Reported today; pending nightly review"
-  },
-  {
-   "ticker": "FLYX",
-   "company": "Flyexclusive Inc.",
-   "filing_day": "2026-11-24",
-   "filing_time": "2026-11-24 16:03",
-   "insiders": "Garner Bradley G",
-   "value": 25058,
-   "insider_price": 0.91,
-   "status": "provisional",
-   "note": "Reported today; pending nightly review"
-  },
-  {
-   "ticker": "GRNT",
-   "company": "Granite Ridge Resources, Inc.",
-   "filing_day": "2026-11-24",
-   "filing_time": "2026-11-24 10:39",
-   "insiders": "Kettler Ronald Kyle",
-   "value": 27450,
-   "insider_price": 5.49,
-   "status": "provisional",
-   "note": "Reported today; pending nightly review"
-  },
-  {
-   "ticker": "PRE",
-   "company": "Prenetics Global Ltd",
-   "filing_day": "2026-11-24",
-   "filing_time": "2026-11-24 08:06",
-   "insiders": "Rosin Brian J",
-   "value": 404200,
-   "insider_price": 10.11,
-   "status": "provisional",
-   "note": "Reported today; pending nightly review"
-  },
-  {
-   "ticker": "RNA",
-   "company": "Atrium Therapeutics, Inc.",
-   "filing_day": "2026-11-24",
-   "filing_time": "2026-11-24 16:05",
-   "insiders": "Winslow Brendan R.",
-   "value": 249417,
-   "insider_price": 7.13,
-   "status": "provisional",
-   "note": "Reported today; pending nightly review"
-  }
- ]
+ "pending_filings": []
 }

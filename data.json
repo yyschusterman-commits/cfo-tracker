@@ -761,9 +761,16 @@
    "new": 0,
    "provisional": 0,
    "errors": []
+  },
+  {
+   "at": "2026-11-25 09:25 ET",
+   "for_day": "2026-11-25",
+   "new": 0,
+   "provisional": 1,
+   "errors": []
   }
  ],
- "updated": "2026-11-25 08:29 ET",
+ "updated": "2026-11-25 09:25 ET",
  "paper": {
   "start": "2026-11-17",
   "start_value": 100000.0,
@@ -1061,5 +1068,17 @@
    }
   ]
  },
- "pending_filings": []
+ "pending_filings": [
+  {
+   "ticker": "PRE",
+   "company": "Prenetics Global Ltd",
+   "filing_day": "2026-11-25",
+   "filing_time": "2026-11-25 09:10",
+   "insiders": "Lo Hoi Chun, Yeung Danny Sheng Wu",
+   "value": 860240,
+   "insider_price": 9.995,
+   "status": "provisional",
+   "note": "Reported today; pending nightly review"
+  }
+ ]
 }

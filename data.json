@@ -1,6 +1,56 @@
 {
  "signals": [
   {
+   "ticker": "PRE",
+   "company": "Prenetics Global Ltd",
+   "filing_day": "2026-11-25",
+   "filing_time": "2026-11-25 09:10",
+   "insiders": "Lo Hoi Chun, Yeung Danny Sheng Wu",
+   "value": 860240,
+   "insider_price": 9.995,
+   "status": "waiting",
+   "note": "",
+   "vol60": 1.186,
+   "adv20": 4221514,
+   "mcap": 195044869,
+   "buy_pct_of_company": 0.441,
+   "score": 98,
+   "limit": 10.2949
+  },
+  {
+   "ticker": "GLXY",
+   "company": "Galaxy Digital Inc.",
+   "filing_day": "2026-11-25",
+   "filing_time": "2026-11-25 17:13",
+   "insiders": "Novogratz Michael, Paquette Anthony",
+   "value": 1223972,
+   "insider_price": 10.865,
+   "status": "waiting",
+   "note": "",
+   "vol60": 1.063,
+   "adv20": 138430362,
+   "mcap": 2055008686,
+   "buy_pct_of_company": 0.0596,
+   "score": 90,
+   "limit": 11.191
+  },
+  {
+   "ticker": "EXE",
+   "company": "Expand Energy Corp",
+   "filing_day": "2026-11-25",
+   "filing_time": "2026-11-25 15:03",
+   "insiders": "Teunissen Marcel",
+   "value": 81560,
+   "insider_price": 81.56,
+   "status": "skipped",
+   "note": "score 18 under 33",
+   "vol60": 0.281,
+   "adv20": 254872908,
+   "mcap": 18836881303,
+   "buy_pct_of_company": 0.0004,
+   "score": 18
+  },
+  {
    "ticker": "RNA",
    "company": "Atrium Therapeutics, Inc.",
    "filing_day": "2026-11-24",
@@ -812,9 +862,16 @@
    "new": 0,
    "provisional": 3,
    "errors": []
+  },
+  {
+   "at": "2026-11-25 22:38 ET",
+   "for_day": "2026-11-25",
+   "new": 3,
+   "provisional": 0,
+   "errors": []
   }
  ],
- "updated": "2026-11-25 19:25 ET",
+ "updated": "2026-11-25 22:38 ET",
  "paper": {
   "start": "2026-11-17",
   "start_value": 100000.0,
@@ -1211,39 +1268,5 @@
    }
   ]
  },
- "pending_filings": [
-  {
-   "ticker": "EXE",
-   "company": "Expand Energy Corp",
-   "filing_day": "2026-11-25",
-   "filing_time": "2026-11-25 15:03",
-   "insiders": "Teunissen Marcel",
-   "value": 81560,
-   "insider_price": 81.56,
-   "status": "provisional",
-   "note": "Reported today; pending nightly review"
-  },
-  {
-   "ticker": "GLXY",
-   "company": "Galaxy Digital Inc.",
-   "filing_day": "2026-11-25",
-   "filing_time": "2026-11-25 17:13",
-   "insiders": "Novogratz Michael, Paquette Anthony",
-   "value": 1223972,
-   "insider_price": 10.865,
-   "status": "provisional",
-   "note": "Reported today; pending nightly review"
-  },
-  {
-   "ticker": "PRE",
-   "company": "Prenetics Global Ltd",
-   "filing_day": "2026-11-25",
-   "filing_time": "2026-11-25 09:10",
-   "insiders": "Lo Hoi Chun, Yeung Danny Sheng Wu",
-   "value": 860240,
-   "insider_price": 9.995,
-   "status": "provisional",
-   "note": "Reported today; pending nightly review"
-  }
- ]
+ "pending_filings": []
 }

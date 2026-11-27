@@ -8,14 +8,16 @@
    "insiders": "Lo Hoi Chun, Yeung Danny Sheng Wu",
    "value": 860240,
    "insider_price": 9.995,
-   "status": "waiting",
-   "note": "",
+   "status": "skipped",
+   "note": "opened +5.5% vs CFO price (limit not filled)",
    "vol60": 1.186,
    "adv20": 4221514,
    "mcap": 195044869,
    "buy_pct_of_company": 0.441,
    "score": 98,
-   "limit": 10.2949
+   "limit": 10.2949,
+   "entry_date": "2026-11-27",
+   "open_price": 10.54
   },
   {
    "ticker": "GLXY",
@@ -25,14 +27,16 @@
    "insiders": "Novogratz Michael, Paquette Anthony",
    "value": 1223972,
    "insider_price": 10.865,
-   "status": "waiting",
-   "note": "",
+   "status": "skipped",
+   "note": "opened +15.8% vs CFO price (limit not filled)",
    "vol60": 1.063,
    "adv20": 138430362,
    "mcap": 2055008686,
    "buy_pct_of_company": 0.0596,
    "score": 90,
-   "limit": 11.191
+   "limit": 11.191,
+   "entry_date": "2026-11-27",
+   "open_price": 12.58
   },
   {
    "ticker": "EXE",
@@ -87,11 +91,11 @@
    "limit": 10.4133,
    "entry_date": "2026-11-25",
    "open_price": 10.34,
-   "days_held": 0,
-   "ret": -3.0,
-   "spy_ret": 1.92,
-   "excess": -4.92,
-   "net_excess": -6.02
+   "days_held": 1,
+   "ret": -1.16,
+   "spy_ret": 2.39,
+   "excess": -3.55,
+   "net_excess": -4.65
   },
   {
    "ticker": "GRNT",
@@ -111,11 +115,11 @@
    "limit": 5.6547,
    "entry_date": "2026-11-25",
    "open_price": 5.49,
-   "days_held": 0,
-   "ret": 3.83,
-   "spy_ret": 1.92,
-   "excess": 1.91,
-   "net_excess": 0.81
+   "days_held": 1,
+   "ret": 6.65,
+   "spy_ret": 2.39,
+   "excess": 4.26,
+   "net_excess": 3.16
   },
   {
    "ticker": "FLYX",
@@ -146,11 +150,11 @@
    "limit": 5.3354,
    "entry_date": "2026-11-25",
    "open_price": 4.39,
-   "days_held": 0,
-   "ret": -1.82,
-   "spy_ret": 1.92,
-   "excess": -3.74,
-   "net_excess": -5.74
+   "days_held": 1,
+   "ret": 3.42,
+   "spy_ret": 2.39,
+   "excess": 1.03,
+   "net_excess": -0.97
   },
   {
    "ticker": "TROX",
@@ -200,11 +204,11 @@
    "limit": 4.6196,
    "entry_date": "2026-11-24",
    "open_price": 4.37,
-   "days_held": 1,
-   "ret": -7.09,
-   "spy_ret": 0.22,
-   "excess": -7.31,
-   "net_excess": -8.01
+   "days_held": 2,
+   "ret": -7.67,
+   "spy_ret": 0.68,
+   "excess": -8.34,
+   "net_excess": -9.04
   },
   {
    "ticker": "AIIR",
@@ -243,11 +247,11 @@
    "limit": 4.3569,
    "entry_date": "2026-11-24",
    "open_price": 4.33,
-   "days_held": 1,
-   "ret": 1.85,
-   "spy_ret": 0.22,
-   "excess": 1.63,
-   "net_excess": 0.53
+   "days_held": 2,
+   "ret": 3.0,
+   "spy_ret": 0.68,
+   "excess": 2.33,
+   "net_excess": 1.23
   },
   {
    "ticker": "FLG",
@@ -329,11 +333,11 @@
    "limit": 11.7317,
    "entry_date": "2026-11-20",
    "open_price": 11.15,
-   "days_held": 3,
-   "ret": 2.65,
-   "spy_ret": 0.44,
-   "excess": 2.21,
-   "net_excess": 1.11
+   "days_held": 4,
+   "ret": 7.66,
+   "spy_ret": 0.9,
+   "excess": 6.76,
+   "net_excess": 5.66
   },
   {
    "ticker": "FBIO",
@@ -394,11 +398,11 @@
    "limit": 8.5954,
    "entry_date": "2026-11-18",
    "open_price": 8.56,
-   "days_held": 5,
-   "ret": 2.45,
-   "spy_ret": -2.27,
-   "excess": 4.73,
-   "net_excess": 3.63
+   "days_held": 6,
+   "ret": 3.91,
+   "spy_ret": -1.82,
+   "excess": 5.74,
+   "net_excess": 4.64
   },
   {
    "ticker": "MP",
@@ -418,11 +422,11 @@
    "limit": 35.9058,
    "entry_date": "2026-11-18",
    "open_price": 34.77,
-   "days_held": 5,
-   "ret": 1.52,
-   "spy_ret": -2.27,
-   "excess": 3.8,
-   "net_excess": 3.1
+   "days_held": 6,
+   "ret": 0.09,
+   "spy_ret": -1.82,
+   "excess": 1.91,
+   "net_excess": 1.21
   },
   {
    "ticker": "ATEC",
@@ -442,11 +446,11 @@
    "limit": 6.9937,
    "entry_date": "2026-11-18",
    "open_price": 6.96,
-   "days_held": 5,
-   "ret": 4.02,
-   "spy_ret": -2.27,
-   "excess": 6.3,
-   "net_excess": 5.6
+   "days_held": 6,
+   "ret": 4.17,
+   "spy_ret": -1.82,
+   "excess": 5.99,
+   "net_excess": 5.29
   },
   {
    "ticker": "REI",
@@ -477,11 +481,11 @@
    "limit": 37.8525,
    "entry_date": "2026-11-17",
    "open_price": 36.75,
-   "days_held": 5,
-   "ret": 1.52,
-   "spy_ret": -2.94,
-   "excess": 4.46,
-   "net_excess": 3.76
+   "days_held": 6,
+   "ret": 0.09,
+   "spy_ret": -2.49,
+   "excess": 2.58,
+   "net_excess": 1.88
   },
   {
    "ticker": "BW",
@@ -520,11 +524,11 @@
    "limit": 10.1558,
    "entry_date": "2026-11-17",
    "open_price": 9.95,
-   "days_held": 6,
-   "ret": 0.4,
-   "spy_ret": -2.94,
-   "excess": 3.34,
-   "net_excess": 2.24
+   "days_held": 7,
+   "ret": 8.74,
+   "spy_ret": -2.49,
+   "excess": 11.24,
+   "net_excess": 10.14
   }
  ],
  "runs": [
@@ -925,18 +929,25 @@
    "new": 0,
    "provisional": 0,
    "errors": []
+  },
+  {
+   "at": "2026-11-27 10:05 ET",
+   "for_day": "2026-11-27",
+   "new": 0,
+   "provisional": 0,
+   "errors": []
   }
  ],
- "updated": "2026-11-27 08:54 ET",
+ "updated": "2026-11-27 10:05 ET",
  "paper": {
   "start": "2026-11-17",
   "start_value": 100000.0,
-  "as_of": "2026-11-25",
-  "intraday": false,
-  "value": 96859.55,
-  "ret": -3.14,
-  "sp_value": 97062.53,
-  "sp_ret": -2.94,
+  "as_of": "2026-11-27",
+  "intraday": true,
+  "value": 99156.51,
+  "ret": -0.84,
+  "sp_value": 97508.09,
+  "sp_ret": -2.49,
   "cash": 0.73,
   "spy_shares": 0,
   "spy_value": 0.0,
@@ -950,10 +961,10 @@
     "shares": 999,
     "bought": "2026-11-17",
     "buy_px": 10.0047,
-    "last_px": 9.99,
-    "value": 9980.01,
-    "ret": -0.15,
-    "days_held": 6,
+    "last_px": 10.82,
+    "value": 10809.18,
+    "ret": 8.15,
+    "days_held": 7,
     "sell_on": "about 2027-02-16"
    },
    {
@@ -961,10 +972,10 @@
     "shares": 271,
     "bought": "2026-11-17",
     "buy_px": 36.8786,
-    "last_px": 35.3,
-    "value": 9566.3,
-    "ret": -4.28,
-    "days_held": 6,
+    "last_px": 34.68,
+    "value": 9398.28,
+    "ret": -5.96,
+    "days_held": 7,
     "sell_on": "about 2027-02-16"
    },
    {
@@ -972,10 +983,10 @@
     "shares": 1141,
     "bought": "2026-11-18",
     "buy_px": 8.6071,
-    "last_px": 8.77,
-    "value": 10006.57,
-    "ret": 1.89,
-    "days_held": 5,
+    "last_px": 8.895,
+    "value": 10149.2,
+    "ret": 3.35,
+    "days_held": 6,
     "sell_on": "about 2027-02-17"
    },
    {
@@ -983,10 +994,10 @@
     "shares": 1406,
     "bought": "2026-11-18",
     "buy_px": 6.9844,
-    "last_px": 7.24,
-    "value": 10179.44,
-    "ret": 3.66,
-    "days_held": 5,
+    "last_px": 7.25,
+    "value": 10193.5,
+    "ret": 3.8,
+    "days_held": 6,
     "sell_on": "about 2027-02-17"
    },
    {
@@ -994,10 +1005,10 @@
     "shares": 873,
     "bought": "2026-11-20",
     "buy_px": 11.0203,
-    "last_px": 11.25,
-    "value": 9821.25,
-    "ret": 2.08,
-    "days_held": 3,
+    "last_px": 11.8,
+    "value": 10301.4,
+    "ret": 7.08,
+    "days_held": 4,
     "sell_on": "about 2027-02-19"
    },
    {
@@ -1005,10 +1016,10 @@
     "shares": 2237,
     "bought": "2026-11-24",
     "buy_px": 4.3538,
-    "last_px": 4.41,
-    "value": 9865.17,
-    "ret": 1.29,
-    "days_held": 1,
+    "last_px": 4.46,
+    "value": 9977.02,
+    "ret": 2.44,
+    "days_held": 2,
     "sell_on": "about 2027-02-23"
    },
    {
@@ -1016,10 +1027,10 @@
     "shares": 2221,
     "bought": "2026-11-24",
     "buy_px": 4.3853,
-    "last_px": 4.06,
-    "value": 9017.26,
-    "ret": -7.42,
-    "days_held": 1,
+    "last_px": 4.035,
+    "value": 8961.73,
+    "ret": -7.99,
+    "days_held": 2,
     "sell_on": "about 2027-02-23"
    },
    {
@@ -1027,10 +1038,10 @@
     "shares": 2190,
     "bought": "2026-11-25",
     "buy_px": 4.4339,
-    "last_px": 4.31,
-    "value": 9438.9,
-    "ret": -2.79,
-    "days_held": 0,
+    "last_px": 4.54,
+    "value": 9942.6,
+    "ret": 2.39,
+    "days_held": 1,
     "sell_on": "about 2027-02-24"
    },
    {
@@ -1038,10 +1049,10 @@
     "shares": 934,
     "bought": "2026-11-25",
     "buy_px": 10.3969,
-    "last_px": 10.03,
-    "value": 9368.02,
-    "ret": -3.53,
-    "days_held": 0,
+    "last_px": 10.22,
+    "value": 9545.48,
+    "ret": -1.7,
+    "days_held": 1,
     "sell_on": "about 2027-02-24"
    },
    {
@@ -1049,10 +1060,10 @@
     "shares": 1687,
     "bought": "2026-11-25",
     "buy_px": 5.5202,
-    "last_px": 5.7,
-    "value": 9615.9,
-    "ret": 3.26,
-    "days_held": 0,
+    "last_px": 5.855,
+    "value": 9877.39,
+    "ret": 6.07,
+    "days_held": 1,
     "sell_on": "about 2027-02-24"
    }
   ],
@@ -1320,6 +1331,12 @@
     "date": "2026-11-25",
     "value": 96859.55,
     "sp": 97062.53,
+    "in_stocks": 100.0
+   },
+   {
+    "date": "2026-11-27",
+    "value": 99156.51,
+    "sp": 97508.09,
     "in_stocks": 100.0
    }
   ]

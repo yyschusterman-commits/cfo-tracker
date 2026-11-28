@@ -533,13 +533,6 @@
  ],
  "runs": [
   {
-   "at": "2026-11-17 15:06 ET",
-   "for_day": "2026-11-17",
-   "new": 0,
-   "provisional": 0,
-   "errors": []
-  },
-  {
    "at": "2026-11-17 15:58 ET",
    "for_day": "2026-11-17",
    "new": 0,
@@ -953,9 +946,16 @@
    "new": 0,
    "provisional": 0,
    "errors": []
+  },
+  {
+   "at": "2026-11-28 09:12 ET",
+   "for_day": "2026-11-28",
+   "new": 0,
+   "provisional": 0,
+   "errors": []
   }
  ],
- "updated": "2026-11-28 08:01 ET",
+ "updated": "2026-11-28 09:12 ET",
  "paper": {
   "start": "2026-11-17",
   "start_value": 100000.0,

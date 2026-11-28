@@ -116,10 +116,10 @@
    "entry_date": "2026-11-25",
    "open_price": 5.49,
    "days_held": 1,
-   "ret": 5.1,
+   "ret": 7.17,
    "spy_ret": 3.57,
-   "excess": 1.53,
-   "net_excess": 0.43
+   "excess": 3.6,
+   "net_excess": 2.5
   },
   {
    "ticker": "FLYX",
@@ -533,12 +533,6 @@
  ],
  "runs": [
   {
-   "at": "2026-11-16 20:24 ET",
-   "for_day": "2026-11-16",
-   "new": 0,
-   "errors": []
-  },
-  {
    "at": "2026-11-17 01:04 ET",
    "for_day": "2026-11-17",
    "new": 4,
@@ -950,22 +944,29 @@
    "new": 0,
    "provisional": 0,
    "errors": []
+  },
+  {
+   "at": "2026-11-27 22:21 ET",
+   "for_day": "2026-11-27",
+   "new": 0,
+   "provisional": 0,
+   "errors": []
   }
  ],
- "updated": "2026-11-27 19:04 ET",
+ "updated": "2026-11-27 22:21 ET",
  "paper": {
   "start": "2026-11-17",
   "start_value": 100000.0,
   "as_of": "2026-11-27",
   "intraday": false,
-  "value": 100339.31,
-  "ret": 0.34,
+  "value": 100524.88,
+  "ret": 0.52,
   "sp_value": 98636.22,
   "sp_ret": -1.36,
-  "cash": 0.73,
+  "cash": 186.3,
   "spy_shares": 0,
   "spy_value": 0.0,
-  "in_stocks": 100.0,
+  "in_stocks": 99.8,
   "max_drop": -6.83,
   "slots_used": 10,
   "slots": 10,
@@ -1076,7 +1077,7 @@
     "buy_px": 5.5202,
     "last_px": 5.77,
     "value": 9733.99,
-    "ret": 4.53,
+    "ret": 6.52,
     "days_held": 1,
     "sell_on": "about 2027-02-24"
    }
@@ -1302,6 +1303,16 @@
     "amount": -9312.57,
     "cash": 0.73,
     "note": "score 51, 9.6% of account"
+   },
+   {
+    "date": "2026-11-27",
+    "action": "DIVIDEND",
+    "ticker": "GRNT",
+    "shares": 1687,
+    "price": 0.11,
+    "amount": 185.57,
+    "cash": 186.3,
+    "note": ""
    }
   ],
   "history": [
@@ -1349,9 +1360,9 @@
    },
    {
     "date": "2026-11-27",
-    "value": 100339.31,
+    "value": 100524.88,
     "sp": 98636.22,
-    "in_stocks": 100.0
+    "in_stocks": 99.8
    }
   ]
  },
